@@ -72,3 +72,44 @@ This diagram provides a deep dive into the core components and relationships wit
 > `![Sequence Diagram](./documentation/sequence_diagram.png)`
 
 ### Steps
+
+
+User ->> API: registration(username, email, password)
+API ->> BusinessLogic: validateUser()
+BusinessLogic ->> BusinessLogic: validated
+BusinessLogic ->> BusinessLogic: createUser()
+BusinessLogic ->> Repository: saveUser()
+Repository -->> BusinessLogic: success
+BusinessLogic -->> API: User Created
+API -->> User: 201 Created
+
+
+###  Description
+
+This interaction illustrates the flow of a **registration API call** from the front-end to database insertion.
+
+- `201 Created`: HTTP status code indicating successful resource creation.
+- Emphasis is on validation and separation of responsibilities across layers.
+
+###  Design Rationale
+
+- The sequence ensures **modular validation**, **safe persistence**, and **clear response communication**.
+- Aligns with **RESTful API design principles**.
+
+---
+
+##  Conclusion
+
+This document serves as the **blueprint for implementing the HBnB project**. It ensures consistency in architectural decisions and provides a clear reference for team members. All diagrams and descriptions are aligned with **best practices** in software architecture and **object-oriented design**.
+
+---
+
+##  GitHub Repository
+
+**Repository:** [holbertonschool-hbnb](https://github.com/YOUR_USERNAME/holbertonschool-hbnb)  
+**Directory:** `/part1`
+
+---
+
+_ End of Document_
+
