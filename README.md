@@ -36,25 +36,6 @@ We start by designing our application's skeleton using **UML (Unified Modeling L
 Our architecture uses a **multi-layered approach** to promote separation of concerns, better maintainability, and modularity.
 
 ---
-### 🧩 Description
-
-This section breaks down the structure and relationships within the business logic core.
-
-#### 🔑 Key Classes
-
-- `User`: Represents each system user.
-- `UserService`: Manages user registration, validation, and retrieval.
-- `UserRepository`: Provides abstract access to data storage.
-
-#### 🔗 Relationships
-
-- `UserService` → depends on `UserRepository`
-- `User` → shared model used across layers
-
-#### 💡 Design Highlights
-
-- Stateless & testable services
-- Loose coupling via dependency injection
 
 ## 🧬 The Three Layers of Our API
 
@@ -76,6 +57,26 @@ This section breaks down the structure and relationships within the business log
 <p align="center">
   <img src="https://github.com/user-attachments/assets/7383e1d2-696d-45de-ac37-d63ea899a019" alt="Class Diagram" width="700" />
 </p>
+
+### 🧩 Description
+
+This section breaks down the structure and relationships within the business logic core.
+
+#### 🔑 Key Classes
+
+- `User`: Represents each system user.
+- `UserService`: Manages user registration, validation, and retrieval.
+- `UserRepository`: Provides abstract access to data storage.
+
+#### 🔗 Relationships
+
+- `UserService` → depends on `UserRepository`
+- `User` → shared model used across layers
+
+#### 💡 Design Highlights
+
+- Stateless & testable services
+- Loose coupling via dependency injection
 
 ---
 
