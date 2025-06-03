@@ -100,8 +100,8 @@ Once the documentation is complete, please request a **manual QA review** as par
 
 
 holbertonschool-hbnb/
--└── part1/
--├── UML_Diagram/
+- └── part1/
+- ├── UML_Diagram/
 - │ ├── Package Diagram.png
 - │ ├── Class Diagram.png
 - │ ├── sequence_user_registration.png
