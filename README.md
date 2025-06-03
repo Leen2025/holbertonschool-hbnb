@@ -168,6 +168,15 @@ This technical documentation acts as a **blueprint** for the HBnB project:
 - Brings together architecture, design, and rationale for collaborative success
 
 ---
+---
+
+## 📂 View Full Diagrams
+
+If you'd like to explore all the diagrams and illustrations used in this project, you can visit the diagrams folder here:
+
+[Go to UML_Diagram folder](https://github.com/Leen2025/holbertonschool-hbnb/tree/main/part1/UML_Diagram)
+
+---
 
 ## 📁 GitHub Repository
 
