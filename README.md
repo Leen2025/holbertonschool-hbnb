@@ -16,9 +16,8 @@ Start by sketching out the application's backbone using UML (Unified Modeling La
  
 ### Diagram: High-Level Package Diagram
 
-> *(Insert Diagram Image Here)*  
-> Example:  
-> `![Package Diagram](./documentation/package_diagram.png)`
+![Image](https://github.com/user-attachments/assets/8e181c6c-bbc4-41b1-9c4a-a0408992ff9d)
+
 
 ### Description
 
