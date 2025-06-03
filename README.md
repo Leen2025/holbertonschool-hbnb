@@ -72,8 +72,9 @@ This section breaks down the structure and relationships within the business log
 ## ⚙️ Business Logic Layer
 
 ### 📐 Class Diagram
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/7383e1d2-696d-45de-ac37-d63ea899a019" alt="Class Diagram" width="400" />
+  <img src="https://github.com/user-attachments/assets/7383e1d2-696d-45de-ac37-d63ea899a019" alt="Class Diagram" width="600" />
 </p>
 
 
