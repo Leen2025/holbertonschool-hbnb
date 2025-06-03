@@ -1,7 +1,7 @@
 # 🏡 HBnB Evolution - UML Documentation
 
 > 📊 **A Simplified Airbnb-Style Application – Designed & Documented by:**  
-**Danah Alshehri, Leen Alsaleh, Shurooq Alabbadi**
+**Leen Alsaleh, Danah Alshehri , Shurooq Alabbadi**
 
 ![gift](https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif)
 
