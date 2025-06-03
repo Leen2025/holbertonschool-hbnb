@@ -177,4 +177,4 @@ This technical documentation acts as a **blueprint** for the HBnB project:
 
 ---
 
-🧠  
+🧠 **"Thank you for taking the time to explore our project. We’re deeply grateful for the opportunity to build, learn, and grow together. Here’s to innovation, teamwork, and the journey ahead!"** 🌟
