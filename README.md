@@ -112,7 +112,7 @@ Selectable features (e.g., Wi-Fi, pool), with an option to customize.
 
 ## 🔄 API Interaction Flow
 
-### 📊 Sequence Diagram: User Registration
+### 📊 Sequence Diagram:
 
 <table>
   <tr>
