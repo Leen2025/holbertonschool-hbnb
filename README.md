@@ -101,6 +101,8 @@ Features available in places, such as Wi-Fi, pools, etc. Users can select from a
 
 ![Image](https://github.com/user-attachments/assets/4b45cad1-de1e-4bae-bf7a-d80bb3f6ab70)
 
+![Image](https://github.com/user-attachments/assets/3221183b-8869-48e8-92ac-5a478a38181a)
+
 ### Steps
 
 
