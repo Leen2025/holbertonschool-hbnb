@@ -1,5 +1,4 @@
-
-	# 🏡 HBnB Project: Technical Documentation
+# 🏡 HBnB Project: Technical Documentation
 
 ![HBnB Cover](https://github.com/user-attachments/assets/5efaf133-f174-42b6-bdd7-986f40ef9b17)
 
