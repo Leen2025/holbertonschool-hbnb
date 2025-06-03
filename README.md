@@ -1,20 +1,20 @@
-#HBnB Project: Technical Documentation
+# HBnB Project: Technical Documentation
 
-##Introduction
+## Introduction
 
 This technical document outlines the architectural and design structure of the **HBnB** project. It compiles all the design artifacts package diagram, class diagram, and sequence diagrams into one cohesive reference. The document provides a comprehensive overview of the system's layered architecture, core components, and interactions to guide implementation and maintenance.
 
 ---
 
-##High-Level Architecture
-
-###Diagram: High-Level Package Diagram
+## High-Level Architecture
+ 
+### Diagram: High-Level Package Diagram
 
 > *(Insert Diagram Image Here)*  
 > Example:  
 > `![Package Diagram](./documentation/package_diagram.png)`
 
-###Description
+### Description
 
 The high-level architecture follows a multi-layered design that separates concerns for better modularity and maintainability.
 
@@ -27,48 +27,48 @@ The high-level architecture follows a multi-layered design that separates concer
 - **Persistence Layer (Database):**  
   Manages direct access to the data sources. Encapsulates all the logic for saving and retrieving data.
 
-###Design Pattern Used: Facade Pattern
+### Design Pattern Used: Facade Pattern
 
 The **Facade** in the Business Logic Layer simplifies interactions between the API and the underlying subsystems (e.g., repositories).
 
 ---
 
-##Business Logic Layer
+## Business Logic Layer
 
-###Diagram: Detailed Class Diagram
+### Diagram: Detailed Class Diagram
 
 > *(Insert Diagram Image Here)*  
 > Example:  
 > `![Class Diagram](./documentation/class_diagram.png)`
 
-###Description
+### Description
 
 This diagram provides a deep dive into the core components and relationships within the Business Logic Layer.
 
-####Key Classes
+#### Key Classes
 
 - `User`: Represents a user entity with properties like `id`, `email`, `password`.
 - `UserService`: Provides business operations such as registration, validation, and retrieval of users.
 - `Repositories`: Interface for data access (e.g., `UserRepository`) to abstract database interactions.
 
-####Relationships
+#### Relationships
 
 - `UserService` depends on `UserRepository` for persistence operations.
 - `User` is a model used across various services and layers.
 
-####Design Decisions
+#### Design Decisions
 
 - Services are **stateless** and **testable**.
 - Repositories are injected as dependencies for **loose coupling**.
 
 ---
 
-##API Interaction Flow
+## API Interaction Flow
 
-###Diagram: Sequence Diagram for User Registration
+### Diagram: Sequence Diagram for User Registration
 
 > *(Insert Diagram Image Here)*  
 > Example:  
 > `![Sequence Diagram](./documentation/sequence_diagram.png)`
 
-###Steps
+### Steps
