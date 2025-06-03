@@ -119,7 +119,4 @@ holbertonschool-hbnb/
 - Follow **SOLID principles** for class design.
 
 ---
-
-🔚 **Good luck on the rest of the project – keep designing like pros!**
-
-تحرير
+# GOOD BYE 💖  .... > ..... > .... >
