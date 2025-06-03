@@ -27,8 +27,9 @@ We start by designing our application's skeleton using **UML (Unified Modeling L
 ## 🏗️ High-Level Architecture
 
 ### 📦 High-Level Package Diagram
-
-![Image](https://github.com/user-attachments/assets/85ee871a-6fe6-44c7-a079-fb09cbd53bbc)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/85ee871a-6fe6-44c7-a079-fb09cbd53bbc" alt="Image" width="400" />
+</p>
 
 ### 🧱 Description
 
@@ -71,8 +72,9 @@ This section breaks down the structure and relationships within the business log
 ## ⚙️ Business Logic Layer
 
 ### 📐 Class Diagram
-
-![Class Diagram](https://github.com/user-attachments/assets/7383e1d2-696d-45de-ac37-d63ea899a019)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7383e1d2-696d-45de-ac37-d63ea899a019" alt="Class Diagram" width="400" />
+</p>
 
 
 ---
