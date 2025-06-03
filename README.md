@@ -45,9 +45,7 @@ The **Facade** in the Business Logic Layer simplifies interactions between the A
 
 ### Diagram: Detailed Class Diagram
 
-> *(Insert Diagram Image Here)*  
-> Example:  
-> `![Class Diagram](./documentation/class_diagram.png)`
+ ![Image](https://github.com/user-attachments/assets/7383e1d2-696d-45de-ac37-d63ea899a019)
 
 ### Description
 
