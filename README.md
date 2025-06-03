@@ -1,4 +1,5 @@
 # HBnB Project: Technical Documentation
+![Image](https://github.com/user-attachments/assets/5efaf133-f174-42b6-bdd7-986f40ef9b17)
 
 ## Introduction
 
