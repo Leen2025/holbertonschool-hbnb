@@ -2,7 +2,6 @@
 
 ![HBnB Cover](https://github.com/user-attachments/assets/5efaf133-f174-42b6-bdd7-986f40ef9b17)
 
-![Celebration](https://media.giphy.com/media/3ohs7KViFq3bP0GVpC/giphy.gif)
 ---
 
 ## 📌 Introduction
@@ -179,3 +178,5 @@ This technical documentation acts as a **blueprint** for the HBnB project:
 ---
 
 🧠 **"Thank you for taking the time to explore our project. We’re deeply grateful for the opportunity to build, learn, and grow together. Here’s to innovation, teamwork, and the journey ahead!"** 🌟
+![Celebration](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
+
