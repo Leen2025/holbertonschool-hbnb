@@ -99,9 +99,7 @@ Features available in places, such as Wi-Fi, pools, etc. Users can select from a
 
 ### Diagram: Sequence Diagram for User Registration
 
-> *(Insert Diagram Image Here)*  
-> Example:  
-> `![Sequence Diagram](./documentation/sequence_diagram.png)`
+![Image](https://github.com/user-attachments/assets/4b45cad1-de1e-4bae-bf7a-d80bb3f6ab70)
 
 ### Steps
 
