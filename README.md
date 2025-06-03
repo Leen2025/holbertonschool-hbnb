@@ -28,7 +28,7 @@ We start by designing our application's skeleton using **UML (Unified Modeling L
 
 ### 📦 High-Level Package Diagram
 
-![Package Diagram](https://github.com/user-attachments/assets/8e181c6b-bbc4-41b1-9c4a-a0408992ff9d)
+![Image](https://github.com/user-attachments/assets/85ee871a-6fe6-44c7-a079-fb09cbd53bbc)
 
 ### 🧱 Description
 
