@@ -90,13 +90,6 @@ Understanding architecture and modeling is key to building scalable and maintain
 
 ---
 
-## 🎉 Special Touch
-
-To celebrate completing this phase, here's a little animated gift for you!  
-![gift](https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif)
-
----
-
 ## 📬 Manual QA Review
 
 Once the documentation is complete, please request a **manual QA review** as part of the evaluation process.
@@ -107,14 +100,14 @@ Once the documentation is complete, please request a **manual QA review** as par
 
 
 holbertonschool-hbnb/
-└── part1/
-├── UML_Diagram/
-│ ├── Package Diagram.png
-│ ├── Class Diagram.png
-│ ├── sequence_user_registration.png
-│ └── ...
-├── README.md
-└── technical_documentation.pdf
+-└── part1/
+-├── UML_Diagram/
+- │ ├── Package Diagram.png
+- │ ├── Class Diagram.png
+- │ ├── sequence_user_registration.png
+- │ └── ...
+- ├── README.md
+- └── technical_documentation.pdf
 
 
 ---
