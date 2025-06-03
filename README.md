@@ -107,10 +107,14 @@ This document serves as the **blueprint for implementing the HBnB project**. It 
 
 ##  GitHub Repository
 
-**Repository:** [holbertonschool-hbnb](https://github.com/YOUR_USERNAME/holbertonschool-hbnb)  
+**Repository:** [holbertonschool-hbnb](https://github.com/Leen2025/holbertonschool-hbnb)  
 **Directory:** `/part1`
 
 ---
+## Contributing 
+- **Leen Mohammed Alsaleh** - [@Leen2025](https://github.com/Leen2025)
+- **Danah Alshehri** - [@d-alshehri](https://github.com/d-alshehri)
+- **Shurooq alabbadi** - [@ShAlabbadi](https://github.com/ShAlabbadi)
 
-_ End of Document_
+
 
