@@ -111,10 +111,17 @@ Selectable features (e.g., Wi-Fi, pool), with an option to customize.
 
 ### 📊 Sequence Diagram: User Registration
 
-![Sequence1](https://github.com/user-attachments/assets/4b45cad1-de1e-4bae-bf7a-d80bb3f6ab70)
-![Sequence2](https://github.com/user-attachments/assets/3221183b-8869-48e8-92ac-5a478a38181a)
-![Sequence3](https://github.com/user-attachments/assets/81830b71-eeb8-4a56-921b-80eacf5f66e0)
-![Sequence4](https://github.com/user-attachments/assets/af2fe1c3-004c-4f59-9478-4ad238918b94)
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/4b45cad1-de1e-4bae-bf7a-d80bb3f6ab70" alt="Sequence1" width="300"></td>
+    <td><img src="https://github.com/user-attachments/assets/3221183b-8869-48e8-92ac-5a478a38181a" alt="Sequence2" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/81830b71-eeb8-4a56-921b-80eacf5f66e0" alt="Sequence3" width="300"></td>
+    <td><img src="https://github.com/user-attachments/assets/af2fe1c3-004c-4f59-9478-4ad238918b94" alt="Sequence4" width="300"></td>
+  </tr>
+</table>
+
 
 ### 🧭 Steps
 
