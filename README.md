@@ -2,6 +2,7 @@
 
 ![HBnB Cover](https://github.com/user-attachments/assets/5efaf133-f174-42b6-bdd7-986f40ef9b17)
 
+![Celebration](https://media.giphy.com/media/3ohs7KViFq3bP0GVpC/giphy.gif)
 ---
 
 ## 📌 Introduction
