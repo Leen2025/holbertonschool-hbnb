@@ -63,10 +63,10 @@ Our architecture uses a **multi-layered approach** to promote separation of conc
 This section breaks down the structure and relationships within the business logic core.
 
 ### ⚙️Class Attributes And Opreation  :
-# Attributes
- ### User 
-- ` Id `,  `frist name` ,  `last name ` ,  `email ` ,  `password ` , ` created_at ` ,  ` updated_at ` , ` is_admin  `
-# Opration :
+# User
+ ### Attributes
+- ` Id `,  `frist name` ,  `last name ` ,  `email ` ,  `password ` , ` created_at ` ,  ` updated_at ` , ` is_admin  `  
+### Opration :
 ` register  `,  `update_profile` ,  `delete_user` ,  `authenticate `
 
 
