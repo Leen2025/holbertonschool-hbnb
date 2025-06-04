@@ -106,7 +106,8 @@ holbertonschool-hbnb/
 - │ ├── Class Diagram.png
 - │ ├── Sequence Diagrams User Registration.png
 - │ └── Sequence Diagrams Place Creation.png
-- │ └── 
+- │ └── Sequence Diagrams Review Submission.jpg
+- │ └──
 - ├── README.md
 - └── technical_documentation.pdf
 
