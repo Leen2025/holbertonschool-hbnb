@@ -104,9 +104,9 @@ holbertonschool-hbnb/
 - ├── UML_Diagram/
 - │ ├── Package Diagram.png
 - │ ├── Class Diagram.png
-- │ ├── sequence_user_registration.png
+- │ ├── Sequence Diagrams User Registration.png
 - │ └── Sequence Diagrams Place Creation.png
-- │ └──
+- │ └── 
 - ├── README.md
 - └── technical_documentation.pdf
 
