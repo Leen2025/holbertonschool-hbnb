@@ -65,12 +65,12 @@ This section breaks down the structure and relationships within the business log
 #### 🔑 Key Classes
 
 - `User`: Represents each system user.
-- `UserService`: Manages user registration, validation, and retrieval.
-- `UserRepository`: Provides abstract access to data storage.
+- `Presentation Layer`: Manages user registration, validation, and retrieval.
+- `Business Logic Layer`: Provides abstract access to data storage.
 
 #### 🔗 Relationships
 
-- `UserService` → depends on `UserRepository`
+- `Presentation Layer` → depends on `Business Logic Layer`
 - `User` → shared model used across layers
 
 #### 💡 Design Highlights
@@ -86,8 +86,8 @@ This section breaks down the structure and relationships within the business log
 
 Accommodations listed in the system, described by:
 
-- Name, description, location
-- Host info, pricing, room count
+- title, description, latitude ,longitude 
+- Owner, price 
 - Amenities & user reviews
 
 ### 👥 Users
