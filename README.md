@@ -87,22 +87,54 @@ This section breaks down the structure and relationships within the business log
 ### Opration :
 `create_amenity `,  `update_amenity` ,  `delete_amenity` ,  `list_amenities `
 
-#### 🔑 Key Classes
+🔑 **Key Classes**
+- **User**  
+  Represents system users with credentials and profile data.  
+  Methods:  
+  - `register()`  
+  - `update_profile()`  
+  - `delete_user()`  
+  - `authenticate()`
 
-- `User`: Represents each system user.
-- `Presentation Layer`: Manages user registration, validation, and retrieval.
-- `Business Logic Layer`: Provides abstract access to data storage.
+- **Place**  
+  Represents a listed property/place with location, description, and pricing.  
+  Methods:  
+  - `create_place()`  
+  - `update_place()`  
+  - `delete_place()`  
+  - `list_amenities()`
 
-#### 🔗 Relationships
+- **Review**  
+  Represents user feedback about places.  
+  Methods:  
+  - `create_review()`  
+  - `update_review()`  
+  - `delete_review()`  
+  - `list_reviews_by_place()`
 
-- `Presentation Layer` → depends on `Business Logic Layer`
-- `User` → shared model used across layers
+- **Amenity**  
+  Represents services/facilities that can be associated with places.  
+  Methods:  
+  - `create_amenity()`  
+  - `update_amenity()`  
+  - `delete_amenity()`  
+  - `list_amenities()`
 
-#### 💡 Design Highlights
+---
 
-- Stateless & testable services
-- Loose coupling via dependency injection
+🔗 **Relationships**
+- `User 1..* → owns → Place`
+- `User 1..* → writes → Review`
+- `Place 1..* → has → Review`
+- `Place *..* → include → Amenity`
 
+---
+
+💡 **Design Highlights**
+- **Encapsulation**: Each class focuses on specific responsibilities.
+- **Reusability**: Common models like `User` and `Amenity` are reused.
+- **Scalability**: Flexible structure for future features.
+- **Clarity**: Clear separation between data and behavior.
 ---
 
 ## 🗂️ The Data Model: Key Entities
