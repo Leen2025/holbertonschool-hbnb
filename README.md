@@ -164,7 +164,7 @@ Selectable features (e.g., Wi-Fi, pool), with an option to customize.
 
 ### 📝 Description
 
-Illustrates how user data travels from the client to the storage layer, highlighting key validations and success responses.
+Illustrates how user data travels from the User to the Persistence layer, highlighting key validations and success responses.
 
 - Status Code: **`201 Created`**
 - Clean, modular communication between components
