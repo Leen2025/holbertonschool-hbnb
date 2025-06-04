@@ -71,7 +71,7 @@ This section breaks down the structure and relationships within the business log
 
  # Place
  ### Attributes :
- ` Id `, `title ` ,`description ` , ` price ` ,  ` latitude ` ,` longitude` , ` created_at ` ,  ` updated_at
+ ` Id `, `title ` ,`description ` , ` price ` ,  ` latitude ` ,` longitude` , ` created_at ` ,  ` updated_at `
  ### Opration :
 ` create_place  `,  `update_place` ,  `delete_place` ,  `list_amenities `
 
