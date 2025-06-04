@@ -82,11 +82,11 @@ Understanding architecture and modeling is key to building scalable and maintain
 
 ## 💖 Meet the Team
 
-| 👩‍💻 Name              | 💼 Role           |
+| 👩‍💻 Name              | 💼Email          |
 |----------------------|------------------|
-| Danah Alshehri       | Developer & QA   |
-| Leen Alsaleh         | Documentation Lead |
-| Shurooq Alabbadi     | UML Designer     |
+| Danah Alshehri       |    1067410693@holbertonschool.com |
+| Leen Alsaleh         | 10693@holbertonschool.com |
+| Shurooq Alabbadi     |    10708@holbertonschool.com |
 
 ---
 
