@@ -64,16 +64,29 @@ This section breaks down the structure and relationships within the business log
 
 ### ⚙️Class Attributes And Opreation  :
 # User
- ### Attributes
-- ` Id `,  `frist name` ,  `last name ` ,  `email ` ,  `password ` , ` created_at ` ,  ` updated_at ` , ` is_admin  `  
+### Attributes :
+` Id `,`frist name` ,`last name ` , `email ` ,  `password ` , ` created_at ` ,  ` updated_at ` , ` is_admin  `  
 ### Opration :
 ` register  `,  `update_profile` ,  `delete_user` ,  `authenticate `
 
+ # Place
+ ### Attributes :
+ ` Id `, `title ` ,`description ` , ` price ` ,  ` latitude ` ,` longitude` , ` created_at ` ,  ` updated_at
+ ### Opration :
+` create_place  `,  `update_place` ,  `delete_place` ,  `list_amenities `
 
-- `Place`
-- `Review `
-- `Amenity`
-- 
+# Review 
+### Attributes :
+` Id `, `rating` ,`commint ` , ` created_at ` ,  ` updated_at `  
+### Opration :
+`create_review  `,  `update_review` ,  `delete_review` ,  `list_review_by_place `
+
+# Amenity
+### Attributes :
+` Id `, ` name` ,`description ` ,` created_at ` ,  ` updated_at ` 
+### Opration :
+`create_amenity `,  `update_amenity` ,  `delete_amenity` ,  `list_amenities `
+
 #### 🔑 Key Classes
 
 - `User`: Represents each system user.
