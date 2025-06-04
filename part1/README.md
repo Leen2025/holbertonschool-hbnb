@@ -109,7 +109,7 @@ holbertonschool-hbnb/
 - │ └── Sequence Diagrams Review Submission.jpg
 - │ └── Sequence Diagrams Fetching a List of Place.jpg
 - ├── README.md
-- └── technical_documentation.pdf
+
 
 
 ---
