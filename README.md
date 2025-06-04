@@ -157,8 +157,8 @@ Selectable features (e.g., Wi-Fi, pool), with an option to customize.
 - API ->> BusinessLogic: validateUser()
 -   BusinessLogic ->> BusinessLogic: validated
 -   BusinessLogic ->> BusinessLogic: createUser()
--   BusinessLogic ->> Repository: saveUser()
--   Repository -->> BusinessLogic: success
+-   BusinessLogic ->> Database: saveUser()
+-   Database -->> BusinessLogic: success
 -   BusinessLogic -->> API: User Created
 -   API -->> User: 201 Created
 
