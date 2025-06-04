@@ -126,7 +126,7 @@ Selectable features (e.g., Wi-Fi, pool), with an option to customize.
 </table>
 
 
-### 🧭 Steps
+### 🧭 EX Steps for registratio
 
 - User ->> API: registration(username, email, password)
 - API ->> BusinessLogic: validateUser()
