@@ -87,7 +87,9 @@ This section breaks down the structure and relationships within the business log
 ### Opration :
 `create_amenity `,  `update_amenity` ,  `delete_amenity` ,  `list_amenities `
 
-🔑 **Key Classes**
+---
+
+## 🔑  **Key Classes**
 - **User**  
   Represents system users with credentials and profile data.  
   Methods:  
