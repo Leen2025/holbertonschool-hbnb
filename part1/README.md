@@ -59,7 +59,7 @@ HBnB Evolution is a conceptual redesign of a simplified Airbnb-style application
 
 ## 🔧 Technologies & Tools
 
-- 🧩 **UML Tools:** draw.io, Mermaid.js
+- 🧩 **UML Tools:**  StarUML, 
 - 📝 **Documentation:** Markdown
 - ⚙️ **Version Control:** Git + GitHub
 
@@ -84,7 +84,7 @@ Understanding architecture and modeling is key to building scalable and maintain
 
 | 👩‍💻 Name              | 💼Email          |
 |----------------------|------------------|
-| Danah Alshehri       |    1067410693@holbertonschool.com |
+| Danah Alshehri       |    10674@holbertonschool.com |
 | Leen Alsaleh         | 10693@holbertonschool.com |
 | Shurooq Alabbadi     |    10708@holbertonschool.com |
 
