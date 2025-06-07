@@ -125,10 +125,11 @@ This section breaks down the structure and relationships within the business log
 ---
 
 🔗 **Relationships**
-- `User 1..* → owns → Place`
-- `User 1..* → writes → Review`
-- `Place 1..* → has → Review`
-- `Place *..* → include → Amenity`
+ `User ` → ` Place `: 1:* (User owns multiple Places)
+
+ `User ` →  `Review `: 1:* (User writes multiple Reviews)
+
+ `Place ` → ` Review ` : 1:* (Place has multiple Reviews)
 
 ---
 
