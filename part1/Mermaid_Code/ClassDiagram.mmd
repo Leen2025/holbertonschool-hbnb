@@ -1,58 +1,66 @@
 classDiagram
+  class BaseModel {
+    - id: string
+    - created_at: datetime
+    - updated_at: datetime
+  }
+
   class User {
-    -id: string
-    -name: string
-    -email: string
-    -password: string
-  }
-
-  class Place {
-    -id: string
-    -name: string
-    -description: string
-    -location: string
-  }
-
-  class Review {
-    -id: string
-    -user_id: string
-    -place_id: string
-    -text: string
-  }
-
-  class Amenity {
-    -id: string
-    -name: string
+    - email: string
+    - password: string
+    - first_name: string
+    - last_name: string
+    - places: List[Place]
+    - reviews: List[Review]
   }
 
   class State {
-    -id: string
-    -name: string
+    - name: string
+    - cities: List[City]
   }
 
   class City {
-    -id: string
-    -name: string
-    -state_id: string
+    - state_id: string
+    - name: string
+    - places: List[Place]
   }
 
-  class BaseModel {
-    -id: string
-    -created_at: datetime
-    -updated_at: datetime
+  class Place {
+    - city_id: string
+    - user_id: string
+    - name: string
+    - description: string
+    - number_rooms: int
+    - number_bathrooms: int
+    - max_guest: int
+    - price_by_night: float
+    - latitude: float
+    - longitude: float
+    - reviews: List[Review]
+    - amenities: List[Amenity]
   }
 
- 
+  class Review {
+    - place_id: string
+    - user_id: string
+    - text: string
+  }
+
+  class Amenity {
+    - name: string
+  }
+
+BaseModel
   User --|> BaseModel
+  State --|> BaseModel
+  City --|> BaseModel
   Place --|> BaseModel
   Review --|> BaseModel
   Amenity --|> BaseModel
-  State --|> BaseModel
-  City --|> BaseModel
 
- 
-  User --> Review : "writes"
-  Place --> Review : "has"
-  City --> Place : "contains"
-  State --> City : "has"
-  Place --> Amenity : "has amenities"
+  State "1" --> "many" City : has
+  City "1" --> "many" Place : has
+  User "1" --> "many" Place : owns
+  User "1" --> "many" Review : writes
+  Place "1" --> "many" Review : receives
+  Place "1" --> "many" Amenity : offers
