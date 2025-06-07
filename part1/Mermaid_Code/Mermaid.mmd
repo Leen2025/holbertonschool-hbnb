@@ -1,0 +1,28 @@
+graph TD
+  subgraph Presentation_Layer
+    ServiceAPI
+  end
+
+  subgraph Business_Logic_Layer
+    HBNBFacade
+    User
+    Place
+    Review
+    Amenity
+  end
+
+  subgraph Persistence_Layer
+    Repositories
+  end
+
+  ServiceAPI --> HBNBFacade
+  HBNBFacade --> User
+  HBNBFacade --> Place
+  HBNBFacade --> Review
+  HBNBFacade --> Amenity
+  HBNBFacade --> Repositories
+
+  note right of HBNBFacade
+    HBNBFacade represents the Facade Pattern,\n
+    simplifying the interaction between layers.
+  end
