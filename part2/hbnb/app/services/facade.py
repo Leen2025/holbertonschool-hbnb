@@ -15,12 +15,12 @@ class HBnBFacade:
             if field not in user_data or not user_data[field]:
                 raise ValueError(f"Missing required field: {field}")
 
-        for existing_user in self.user_repo.all():
+        for existing_user in self.user_repo.get_all():
             if existing_user.email == user_data["email"]:
                 raise ValueError("Email already exists")
 
         new_user = User(**user_data)
-        self.user_repo.save(new_user)
+        self.user_repo.add(new_user)
         return new_user
 
     def get_place(self, place_id):
@@ -40,6 +40,7 @@ class HBnBFacade:
 
         if not (-90.0 <= place_data["latitude"] <= 90.0):
             raise ValueError("Latitude must be between -90.0 and 90.0")
+
         if not (-180.0 <= place_data["longitude"] <= 180.0):
             raise ValueError("Longitude must be between -180.0 and 180.0")
 
@@ -55,6 +56,5 @@ class HBnBFacade:
             longitude=place_data["longitude"],
             owner=owner
         )
-        self.place_repo.save(new_place)
+        self.place_repo.add(new_place)
         return new_place
-
