@@ -1,4 +1,5 @@
 from app.persistence.repository import InMemoryRepository
+from app.models.user import User
 
 class HBnBFacade:
     def __init__(self):
@@ -7,13 +8,19 @@ class HBnBFacade:
         self.review_repo = InMemoryRepository()
         self.amenity_repo = InMemoryRepository()
 
-    # Placeholder method for creating a user
     def create_user(self, user_data):
-        # here, user_data is a dict with user info
-        # For now, just a placeholder - will implement logic later
-        pass
+        # Validate required fields
+        required_fields = ["first_name", "last_name", "email"]
+        for field in required_fields:
+            if field not in user_data or not user_data[field]:
+                raise ValueError(f"Missing required field: {field}")
 
-    # Placeholder method for fetching a place by ID
-    def get_place(self, place_id):
-        # For now, just a placeholder
-        pass
+        # Check if email already exists
+        for existing_user in self.user_repo.all():
+            if existing_user.email == user_data["email"]:
+                raise ValueError("Email already exists")
+
+        # Create and store user
+        new_user = User(**user_data)
+        self.user_repo.save(new_user)
+        return new_user
