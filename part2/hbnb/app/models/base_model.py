@@ -1,3 +1,5 @@
+# models/base_model.py
+
 import uuid
 from datetime import datetime
 
@@ -8,11 +10,11 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def save(self):
-        """Update the updated_at timestamp."""
+        """Update the updated_at timestamp"""
         self.updated_at = datetime.now()
 
-    def update(self, data):
-        """Update object attributes using a dictionary."""
+    def update(self, data: dict):
+        """Update attributes from a dictionary"""
         for key, value in data.items():
             if hasattr(self, key):
                 setattr(self, key, value)
