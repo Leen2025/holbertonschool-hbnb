@@ -1,4 +1,4 @@
-uufrom app.services.facade import HBnBFacade
+from app.services.facade import HBnBFacade
 
 def test_create_user_and_place():
     facade = HBnBFacade()
@@ -28,3 +28,4 @@ def test_create_user_and_place():
 
 if __name__ == "__main__":
     test_create_user_and_place()
+
