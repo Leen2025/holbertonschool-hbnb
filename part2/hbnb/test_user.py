@@ -1,5 +1,5 @@
 from app.models.user import User
-
+from models.base_model import BaseModel
 def test_user():
     user = User("Leen", "Alsaleh", "leen@example.com")
     assert user.first_name == "Leen"
