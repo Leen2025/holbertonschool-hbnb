@@ -9,6 +9,6 @@ def test_user():
     assert user.first_name == "Leen"
     assert user.email == "leen@example.com"
     assert user.is_admin is False
-    print("✅ User test passed")
+    print(" User test passed")
 
 test_user()
