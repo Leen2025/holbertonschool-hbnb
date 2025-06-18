@@ -1,16 +1,18 @@
-from app.models.base_model import BaseModel
+# models/place.py
+
+from models.base_model import BaseModel
 
 class Place(BaseModel):
     def __init__(self, title, description, price, latitude, longitude, owner):
         super().__init__()
         if not title or len(title) > 100:
-            raise ValueError("Invalid title")
-        if price < 0:
+            raise ValueError("Title is required and must be <= 100 characters")
+        if price <= 0:
             raise ValueError("Price must be positive")
-        if latitude < -90 or latitude > 90:
-            raise ValueError("Latitude must be in range")
-        if longitude < -180 or longitude > 180:
-            raise ValueError("Longitude must be in range")
+        if not (-90.0 <= latitude <= 90.0):
+            raise ValueError("Invalid latitude")
+        if not (-180.0 <= longitude <= 180.0):
+            raise ValueError("Invalid longitude")
 
         self.title = title
         self.description = description
