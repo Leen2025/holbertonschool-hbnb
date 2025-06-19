@@ -3,7 +3,7 @@ from app.services import facade
 
 api = Namespace('users', description='User operations')
 
-# Define the user model for input validation and documentation
+# نموذج المستخدم للإدخال والتحقق
 user_model = api.model('User', {
     'first_name': fields.String(required=True, description='First name of the user'),
     'last_name': fields.String(required=True, description='Last name of the user'),
@@ -12,20 +12,6 @@ user_model = api.model('User', {
 
 @api.route('/')
 class UserList(Resource):
-    @api.response(200, 'List of users retrieved successfully')
-    def get(self):
-        """Retrieve a list of all users"""
-        users = facade.get_all_users()
-        return [
-            {
-                'id': user.id,
-                'first_name': user.first_name,
-                'last_name': user.last_name,
-                'email': user.email
-            }
-            for user in users
-        ], 200
-
     @api.expect(user_model, validate=True)
     @api.response(201, 'User successfully created')
     @api.response(400, 'Email already registered')
@@ -34,7 +20,6 @@ class UserList(Resource):
         """Register a new user"""
         user_data = api.payload
 
-        # Check if email already exists
         existing_user = facade.get_user_by_email(user_data['email'])
         if existing_user:
             return {'error': 'Email already registered'}, 400
@@ -46,6 +31,17 @@ class UserList(Resource):
             'last_name': new_user.last_name,
             'email': new_user.email
         }, 201
+
+    @api.response(200, 'List of users retrieved successfully')
+    def get(self):
+        """Get list of all users"""
+        users = facade.get_all_users()
+        return [{
+            'id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email
+        } for user in users], 200
 
 @api.route('/<user_id>')
 class UserResource(Resource):
@@ -65,24 +61,14 @@ class UserResource(Resource):
 
     @api.expect(user_model, validate=True)
     @api.response(200, 'User updated successfully')
-    @api.response(400, 'Invalid input data')
     @api.response(404, 'User not found')
+    @api.response(400, 'Invalid input data')
     def put(self, user_id):
         """Update user information"""
         user_data = api.payload
-
-        # Check if user exists
-        existing_user = facade.get_user(user_id)
-        if not existing_user:
-            return {'error': 'User not found'}, 404
-
-        # Check if email is being changed to an already registered email
-        if 'email' in user_data and user_data['email'] != existing_user.email:
-            email_user = facade.get_user_by_email(user_data['email'])
-            if email_user and email_user.id != user_id:
-                return {'error': 'Email already registered'}, 400
-
         updated_user = facade.update_user(user_id, user_data)
+        if not updated_user:
+            return {'error': 'User not found'}, 404
         return {
             'id': updated_user.id,
             'first_name': updated_user.first_name,
