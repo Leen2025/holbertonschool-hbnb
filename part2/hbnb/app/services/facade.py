@@ -20,7 +20,7 @@ class HBnBFacade:
 
     def get_all_users(self):
         """Retrieve all users from the repository"""
-        return self.user_repo.list()
+        return self.user_repo.get_all()
 
     def update_user(self, user_id, data):
         """Update an existing user's information"""
