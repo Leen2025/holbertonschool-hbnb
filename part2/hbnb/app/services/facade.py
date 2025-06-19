@@ -1,3 +1,8 @@
+# app/services/facade.py
+
+from app.models.user import User
+from app.repositories.in_memory_repository import InMemoryRepository
+
 class HBnBFacade:
     def __init__(self):
         self.user_repo = InMemoryRepository()
@@ -12,3 +17,15 @@ class HBnBFacade:
 
     def get_user_by_email(self, email):
         return self.user_repo.get_by_attribute('email', email)
+
+    def get_all_users(self):
+        """Retrieve all users from the repository"""
+        return self.user_repo.list()
+
+    def update_user(self, user_id, data):
+        """Update an existing user's information"""
+        user = self.get_user(user_id)
+        if not user:
+            return None
+        user.update(data)
+        return user
