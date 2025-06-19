@@ -55,7 +55,7 @@ class UserList(Resource):
         }, 201
 
 
-@api.route('/<string:user_id>')
+@api.route('/<user_id>')
 class UserResource(Resource):
     @api.response(200, 'User retrieved successfully')
     @api.response(404, 'User not found')
@@ -89,6 +89,7 @@ class UserResource(Resource):
             if existing_user and existing_user.id != user_id:
                 return {'error': 'Email already in use'}, 400
 
+        user_data = api.payload
         updated_user = facade.update_user(user_id, data)
         return {
             'id': updated_user.id,
