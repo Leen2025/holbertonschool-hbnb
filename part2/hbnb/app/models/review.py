@@ -1,5 +1,3 @@
-# models/review.py
-
 from app.models.base_model import BaseModel
 
 class Review(BaseModel):
@@ -14,3 +12,17 @@ class Review(BaseModel):
         self.rating = rating
         self.place = place
         self.user = user
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "text": self.text,
+            "rating": self.rating,
+            "place_id": self.place.id if self.place else None,
+            "user": {
+                "id": self.user.id,
+                "first_name": self.user.first_name,
+                "last_name": self.user.last_name,
+                "email": self.user.email
+            } if self.user else None
+        }
