@@ -10,3 +10,9 @@ class Amenity(BaseModel):
             raise ValueError("Amenity name must be 50 characters or fewer")
 
         self.name = name
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name
+        }
