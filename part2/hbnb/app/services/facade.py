@@ -4,12 +4,14 @@ from app.models.user import User
 from app.models.place import Place
 from app.repositories.in_memory_repository import InMemoryRepository
 from app.models.amenity import Amenity
+from app.models.review import Review
 
 class HBnBFacade:
     def __init__(self):
         self.user_repo = InMemoryRepository()
         self.amenity_repo = InMemoryRepository()
         self.place_repo = InMemoryRepository()
+        self.review_repo = InMemoryRepository()
 
     # --- User methods ---
     def create_user(self, user_data):
@@ -87,3 +89,43 @@ class HBnBFacade:
 
         self.place_repo.add(place)
         return place
+
+        # --- Review methods ---
+    def create_review(self, review_data):
+        text = review_data.get('text')
+        rating = review_data.get('rating')
+        place_id = review_data.get('place_id')
+        user_id = review_data.get('user_id')
+
+        if not text:
+            raise ValueError("Review text is required")
+        if not (1 <= rating <= 5):
+            raise ValueError("Rating must be between 1 and 5")
+
+        place = self.place_repo.get(place_id)
+        if not place:
+            raise ValueError("Place not found")
+
+        user = self.user_repo.get(user_id)
+        if not user:
+            raise ValueError("User not found")
+
+        review = Review(text=text, rating=rating, place=place, user=user)
+        self.review_repo.add(review)
+        place.add_review(review)  
+        return review
+
+    def get_review(self, review_id):
+        return self.review_repo.get(review_id)
+
+    def get_all_reviews(self):
+        return self.review_repo.get_all()
+
+    def update_review(self, review_id, review_data):
+        review = self.review_repo.get(review_id)
+        if not review:
+            return None
+        for key, value in review_data.items():
+            setattr(review, key, value)
+        return review
+
