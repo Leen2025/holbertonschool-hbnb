@@ -77,6 +77,7 @@ class HBnBFacade:
         if not owner:
             raise ValueError("Owner not found")
 
+        amenities = place_data.pop('amenities', [])
         place = Place(owner=owner, **place_data)
         self.place_repo.add(place)
         return place
