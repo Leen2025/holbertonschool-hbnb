@@ -69,10 +69,17 @@ class HBnBFacade:
 
         if lon is None or lon < -180 or lon > 180:
             raise ValueError("Invalid longitude")
+        
+        owner_id = place_data.pop('owner_id', None)
+        if not owner_id:
+            raise ValueError("Owner ID is required")
+        owner = self.user_repo.get(owner_id)
+        if not owner:
+        raise ValueError("Owner not found")
 
-        place = Place(**place_data)
-        self.place_repo.add(place)
-        return place
+    place = Place(owner=owner, **place_data)
+    self.place_repo.add(place)
+    return place
 
     def get_place(self, place_id):
         return self.place_repo.get(place_id)
