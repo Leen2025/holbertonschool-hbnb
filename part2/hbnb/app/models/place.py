@@ -57,16 +57,14 @@ class Place(BaseModel):
         """Add an amenity to this place."""
         self.amenities.append(amenity)
 
-
-
-        def to_dict(self):
-    return {
-        "id": self.id,
-        "title": self.title,
-        "description": self.description,
-        "price": self.price,
-        "latitude": self.latitude,
-        "longitude": self.longitude,
-        "owner": self.owner.to_dict() if hasattr(self.owner, "to_dict") else self.owner,
-        "amenities": [a.to_dict() if hasattr(a, "to_dict") else a for a in self.amenities],
-    }
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "description": self.description,
+            "price": self.price,
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "owner": self.owner.to_dict() if hasattr(self.owner, "to_dict") else self.owner,
+            "amenities": [a.to_dict() if hasattr(a, "to_dict") else a for a in self.amenities],
+        }
