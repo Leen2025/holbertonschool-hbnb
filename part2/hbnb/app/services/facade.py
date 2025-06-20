@@ -3,7 +3,7 @@
 from app.models.user import User
 from app.models.place import Place
 from app.repositories.in_memory_repository import InMemoryRepository
-from app.models.amenity import Amenity  # تأكد من استيراد Amenity
+from app.models.amenity import Amenity
 
 class HBnBFacade:
     def __init__(self):
@@ -77,9 +77,16 @@ class HBnBFacade:
         if not owner:
             raise ValueError("Owner not found")
 
-        amenities = place_data.pop('amenities', [])
+        amenity_ids = place_data.pop('amenities', [])
         place = Place(owner=owner, **place_data)
-        self.place_repo.add(place)
+        for amenity_id in amenity_ids:
+        amenity = self.amenity_repo.get(amenity_id)
+        if amenity:
+            place.add_amenity(amenity)
+
+
+
+            self.place_repo.add(place)
         return place
 
     def get_place(self, place_id):
