@@ -57,33 +57,33 @@ class HBnBFacade:
 
     # --- Place methods ---
     def create_place(self, place_data):
-    price = place_data.get('price')
-    lat = place_data.get('latitude')
-    lon = place_data.get('longitude')
+        price = place_data.get('price')
+        lat = place_data.get('latitude')
+        lon = place_data.get('longitude')
 
-    if price is None or price < 0:
-        raise ValueError("Invalid price")
+        if price is None or price < 0:
+            raise ValueError("Invalid price")
 
-    if lat is None or lat < -90 or lat > 90:
-        raise ValueError("Invalid latitude")
+        if lat is None or lat < -90 or lat > 90:
+            raise ValueError("Invalid latitude")
 
-    if lon is None or lon < -180 or lon > 180:
-        raise ValueError("Invalid longitude")
+        if lon is None or lon < -180 or lon > 180:
+            raise ValueError("Invalid longitude")
 
-    owner_id = place_data.pop('owner_id', None)
-    if not owner_id:
-        raise ValueError("Owner ID is required")
-    owner = self.user_repo.get(owner_id)
-    if not owner:
-        raise ValueError("Owner not found")
+        owner_id = place_data.pop('owner_id', None)
+        if not owner_id:
+            raise ValueError("Owner ID is required")
+        owner = self.user_repo.get(owner_id)
+        if not owner:
+            raise ValueError("Owner not found")
 
-    amenity_ids = place_data.pop('amenities', [])
-    place = Place(owner=owner, **place_data)
+        amenity_ids = place_data.pop('amenities', [])
+        place = Place(owner=owner, **place_data)
 
-    for amenity_id in amenity_ids:
-        amenity = self.amenity_repo.get(amenity_id)
-        if amenity:
-            place.add_amenity(amenity)
+        for amenity_id in amenity_ids:
+            amenity = self.amenity_repo.get(amenity_id)
+            if amenity:
+                place.add_amenity(amenity)
 
-    self.place_repo.add(place)
-    return place
+        self.place_repo.add(place)
+        return place
