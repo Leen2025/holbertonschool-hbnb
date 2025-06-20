@@ -2,7 +2,7 @@ from app.models.base_model import BaseModel
 
 class Place(BaseModel):
     def __init__(self, owner, title, price, latitude, longitude, description="", amenities=None):
-        super().__init__()  
+        super().__init__()
 
         if not title or len(title) > 100:
             raise ValueError("Title is required and must be less than 100 characters.")
@@ -56,3 +56,21 @@ class Place(BaseModel):
     def add_amenity(self, amenity):
         """Add an amenity to this place."""
         self.amenities.append(amenity)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "description": self.description,
+            "price": self.price,
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "owner": {
+                "id": self.owner.id,
+                "first_name": self.owner.first_name,
+                "last_name": self.owner.last_name,
+                "email": self.owner.email
+            },
+            "amenities": [amenity.to_dict() for amenity in self.amenities],
+            "reviews": [review.to_dict() for review in self.reviews]  
+        }
