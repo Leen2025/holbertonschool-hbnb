@@ -1,8 +1,8 @@
 from app.models.base_model import BaseModel
 
 class Place(BaseModel):
-    def __init__(self, title, description, price, latitude, longitude, owner, **kwargs):
-        super().__init__(**kwargs)
+     def __init__(self, owner, title, price, latitude, longitude, description="", amenities=None):
+        super().__init__
 
         if not title or len(title) > 100:
             raise ValueError("Title is required and must be less than 100 characters.")
@@ -15,8 +15,9 @@ class Place(BaseModel):
         self.latitude = latitude     # will call the setter below
         self.longitude = longitude   # will call the setter below
         self.owner = owner
+        self.owner_id = owner.id
         self.reviews = []
-        self.amenities = []
+        self.amenities = amenities if amenities else []
 
     @property
     def price(self):
