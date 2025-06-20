@@ -55,90 +55,34 @@ class HBnBFacade:
         return amenity
 
  # ---  Place methods ---
- def create_place(self, place_data):
-    price = place_data.get('price')
-    lat = place_data.get('latitude')
-    lon = place_data.get('longitude')
-    owner_id = place_data.get('owner_id')
-    amenities_ids = place_data.get('amenities', [])
+  def create_place(self, place_data):
+        price = place_data.get('price')
+        lat = place_data.get('latitude')
+        lon = place_data.get('longitude')
 
-    if price is None or price < 0:
-        raise ValueError("Invalid price")
-    if lat is None or lat < -90 or lat > 90:
-        raise ValueError("Invalid latitude")
-    if lon is None or lon < -180 or lon > 180:
-        raise ValueError("Invalid longitude")
-
-    owner = self.user_repo.get(owner_id)
-    if not owner:
-        raise ValueError("Owner not found")
-
-    amenities = []
-    for aid in amenities_ids:
-        amenity = self.amenity_repo.get(aid)
-        if not amenity:
-            raise ValueError(f"Amenity {aid} not found")
-        amenities.append(amenity)
-
-    place = Place(
-        title=place_data.get('title'),
-        description=place_data.get('description'),
-        price=price,
-        latitude=lat,
-        longitude=lon,
-        owner=owner
-    )
-    # أضف amenities لكائن place
-    for amenity in amenities:
-        place.add_amenity(amenity)
-
-    self.place_repo.add(place)
-    return place
-
-
-def update_place(self, place_id, place_data):
-    place = self.place_repo.get(place_id)
-    if not place:
-        return None
-
-    if 'price' in place_data:
-        price = place_data['price']
-        if price < 0:
+        if price is None or price < 0:
             raise ValueError("Invalid price")
-        place.price = price
 
-    if 'latitude' in place_data:
-        lat = place_data['latitude']
-        if lat < -90 or lat > 90:
+        if lat is None or lat < -90 or lat > 90:
             raise ValueError("Invalid latitude")
-        place.latitude = lat
 
-    if 'longitude' in place_data:
-        lon = place_data['longitude']
-        if lon < -180 or lon > 180:
+        if lon is None or lon < -180 or lon > 180:
             raise ValueError("Invalid longitude")
-        place.longitude = lon
 
-    if 'title' in place_data:
-        place.title = place_data['title']
+        place = Place(**place_data)
+        self.place_repo.add(place)
+        return place
 
-    if 'description' in place_data:
-        place.description = place_data['description']
+    def get_place(self, place_id):
+        return self.place_repo.get(place_id)
 
-    if 'owner_id' in place_data:
-        owner = self.user_repo.get(place_data['owner_id'])
-        if not owner:
-            raise ValueError("Owner not found")
-        place.owner = owner
+    def get_all_places(self):
+        return self.place_repo.get_all()
 
-    if 'amenities' in place_data:
-        amenities_ids = place_data['amenities']
-        amenities = []
-        for aid in amenities_ids:
-            amenity = self.amenity_repo.get(aid)
-            if not amenity:
-                raise ValueError(f"Amenity {aid} not found")
-            amenities.append(amenity)
-        place.amenities = amenities
-
-    return place
+    def update_place(self, place_id, place_data):
+        place = self.place_repo.get(place_id)
+        if not place:
+            return None
+        for key, value in place_data.items():
+            setattr(place, key, value)
+        return place
