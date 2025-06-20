@@ -88,7 +88,7 @@ class HBnBFacade:
                 place.add_amenity(amenity)
 
         self.place_repo.add(place)
-        return place
+        return place.to_dict()
 
         # --- Review methods ---
     def create_review(self, review_data):
