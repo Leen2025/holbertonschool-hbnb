@@ -23,6 +23,39 @@ class Place(BaseModel):
         self.owner = owner  # User instance
         self.reviews = []  # Related reviews
         self.amenities = []  # Related amenities
+        self.price = price
+        self.latitude = latitude
+        self.longitude = longitude
+
+        @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, value):
+        if value < 0:
+            raise ValueError("Price must be a non-negative float.")
+        self._price = value
+
+    @property
+    def latitude(self):
+        return self._latitude
+
+    @latitude.setter
+    def latitude(self, value):
+        if value < -90.0 or value > 90.0:
+            raise ValueError("Latitude must be between -90.0 and 90.0.")
+        self._latitude = value
+
+    @property
+    def longitude(self):
+        return self._longitude
+
+    @longitude.setter
+    def longitude(self, value):
+        if value < -180.0 or value > 180.0:
+            raise ValueError("Longitude must be between -180.0 and 180.0.")
+        self._longitude = value
 
     def add_review(self, review):
         """Add a review to this place."""
