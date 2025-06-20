@@ -3,6 +3,7 @@
 from app.models.user import User
 from app.models.place import Place
 from app.repositories.in_memory_repository import InMemoryRepository
+from app.models.amenity import Amenity  # تأكد من استيراد Amenity
 
 class HBnBFacade:
     def __init__(self):
@@ -54,8 +55,8 @@ class HBnBFacade:
         amenity.update(amenity_data)
         return amenity
 
- # ---  Place methods ---
-  def create_place(self, place_data):
+    # --- Place methods ---
+    def create_place(self, place_data):
         price = place_data.get('price')
         lat = place_data.get('latitude')
         lon = place_data.get('longitude')
