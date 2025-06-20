@@ -36,7 +36,7 @@ class PlaceList(Resource):
         try:
             place_data = api.payload
             place = facade.create_place(place_data)
-            owner = place.owner
+            owner = place.get('owner', None)
 
             return {
                 "id": place.id,
