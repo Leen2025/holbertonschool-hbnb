@@ -16,7 +16,7 @@ user_model = api.model('PlaceUser', {
     'email': fields.String(description='Email of the owner')
 })
 
-# Input model
+# Input model for creating/updating a place
 place_model = api.model('Place', {
     'title': fields.String(required=True, description='Title of the place'),
     'description': fields.String(description='Description of the place'),
@@ -35,24 +35,8 @@ class PlaceList(Resource):
     def post(self):
         try:
             place_data = api.payload
-            place = facade.create_place(place_data)
-            owner = place.get('owner', None)
-
-            return {
-                "id": place.id,
-                "title": place.title,
-                "description": place.description,
-                "price": place.price,
-                "latitude": place.latitude,
-                "longitude": place.longitude,
-                "owner": {
-                    "id": owner.id,
-                    "first_name": owner.first_name,
-                    "last_name": owner.last_name,
-                    "email": owner.email
-                } if owner else None,
-                "amenities": place.amenities
-            }, 201
+            place_dict = facade.create_place(place_data)
+            return place_dict, 201
         except Exception as e:
             return {"error": str(e)}, 400
 
@@ -60,6 +44,7 @@ class PlaceList(Resource):
     def get(self):
         """Retrieve a list of all places"""
         places = facade.get_all_places()
+        # Return simplified info for each place
         return [{
             "id": p.id,
             "title": p.title,
@@ -78,7 +63,6 @@ class PlaceResource(Resource):
         if not place:
             return {"error": "Place not found"}, 404
 
-        # dummy owner and amenities (replace with real logic if needed)
         owner = facade.get_user(place.owner_id)
         amenities = [facade.get_amenity(aid) for aid in place.amenities]
 
