@@ -16,6 +16,13 @@ user_model = api.model('PlaceUser', {
     'email': fields.String(description='Email of the owner')
 })
 
+review_model = api.model('PlaceReview', {
+    'id': fields.String(description='Review ID'),
+    'text': fields.String(description='Text of the review'),
+    'rating': fields.Integer(description='Rating of the place (1-5)'),
+    'user_id': fields.String(description='ID of the user')
+})
+
 # Input model for creating/updating a place
 place_model = api.model('Place', {
     'title': fields.String(required=True, description='Title of the place'),
@@ -65,11 +72,13 @@ class PlaceResource(Resource):
 
         owner = facade.get_user(place.owner_id)
         amenities = [facade.get_amenity(aid) for aid in place.amenities]
+        reviews = getattr(place, 'reviews', [])
 
         return {
             "id": place.id,
             "title": place.title,
             "description": place.description,
+            "price": place.price,
             "latitude": place.latitude,
             "longitude": place.longitude,
             "owner": {
@@ -80,6 +89,14 @@ class PlaceResource(Resource):
             } if owner else {},
             "amenities": [
                 {"id": a.id, "name": a.name} for a in amenities if a
+            ],
+            "reviews": [
+                {
+                    "id": r.id,
+                    "text": r.text,
+                    "rating": r.rating,
+                    "user_id": r.user.id if r.user else None
+                } for r in reviews
             ]
         }, 200
 
