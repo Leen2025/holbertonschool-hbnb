@@ -270,7 +270,7 @@ python3 -m api.v1.app
 Test with:
 curl http://127.0.0.1:5000/api/v1/status
 
-
+````
 ---
 
 ### 🔹 Task 1: Implement Place CRUD Endpoints
@@ -309,7 +309,8 @@ curl -X POST http://127.0.0.1:5000/api/v1/places/
   - Update user
   - Delete user
 - Validated required fields like `email` and `password`.
-
+- 
+![Image](https://github.com/user-attachments/assets/311797f0-fd06-4949-be64-df049aebddcb)
 ---
 
 ### 🔹 Task 4: Implement Amenity Endpoints
@@ -317,7 +318,7 @@ curl -X POST http://127.0.0.1:5000/api/v1/places/
 - Developed full set of routes for `/amenities` and `/amenities/<amenity_id>`.
 - Supports `POST`, `GET`, `PUT`, and `DELETE` methods.
 - Added input validation and handled errors appropriately.
-
+![Image](https://github.com/user-attachments/assets/2671ce31-b716-4e1c-aa64-ea8d35d000aa)
 ---
 
 ### 🔹 Task 5: Handle Missing Routes and Errors
@@ -338,6 +339,9 @@ curl -X POST http://127.0.0.1:5000/api/v1/places/
   - Required fields missing
   - Wrong data types or non-existent IDs
 - Ensured appropriate HTTP response codes are returned.
+- 
+![Image](https://github.com/user-attachments/assets/9f10c847-ccf9-4ac2-bedc-0bceda0e684d)
+
 
 Examples:
 
@@ -350,7 +354,7 @@ curl -X POST http://127.0.0.1:5000/api/v1/users/
 
 **Update a User:**
 
-تحرير
+
 
 curl -X PUT http://127.0.0.1:5000/api/v1/users/<user_id>
 -H "Content-Type: application/json"
