@@ -15,7 +15,7 @@ Welcome to the technical backbone of **HBnB Evolution** — a project inspired b
 This document outlines the system’s **architecture**, **design**, and **UML diagrams**, offering a clear, layered reference to guide development and maintenance.
 
 ---
-
+# PART1 
 ## 🍳 What’s Cooking in Part 1?
 
 ### ✏️ Sketching with UML
@@ -245,6 +245,172 @@ If you'd like to explore all the diagrams and illustrations used in this project
 📂 **Directory:** `/part1`
 
 ---
+# PART 2 
+
+
+# HBnB - Part 2: API Implementation and Business Logic
+
+## 🧠 Overview
+
+This part of the HBnB project focuses on implementing the **Business Logic** and **API Endpoints** using Python and Flask. It builds upon the foundational elements of the application to provide RESTful services that manage core models such as `User`, `Place`, `State`, `City`, and more.
+
+---
+
+## 📝 Tasks Breakdown
+
+### 🔹 Task 0: Base API Setup
+
+- Set up Flask application structure.
+- Created basic `/status` route to return a simple JSON response.
+- Verified app runs using:
+
+```bash
+python3 -m api.v1.app
+
+Test with:
+curl http://127.0.0.1:5000/api/v1/status
+
+
+---
+
+### 🔹 Task 1: Implement Place CRUD Endpoints
+
+- Developed routes for `/places` and `/places/<place_id>`.
+- Implemented Create, Read, Update, and Delete functionality.
+- JSON input validation added.
+
+Example:
+
+curl -X POST http://127.0.0.1:5000/api/v1/places/
+-H "Content-Type: application/json"
+-d '{"name": "My place", "city_id": "xyz", "user_id": "abc"}'
+
+
+---
+
+### 🔹 Task 2: Implement City and State Endpoints
+
+- Created endpoints:
+  - `/states`
+  - `/states/<state_id>`
+  - `/states/<state_id>/cities`
+  - `/cities/<city_id>`
+- Enabled retrieving, creating, and deleting cities related to a state.
+
+---
+
+### 🔹 Task 3: Implement User Endpoints
+
+- Built endpoints for:
+  - `/users`
+  - `/users/<user_id>`
+- CRUD operations:
+  - Create user
+  - Update user
+  - Delete user
+- Validated required fields like `email` and `password`.
+
+---
+
+### 🔹 Task 4: Implement Amenity Endpoints
+
+- Developed full set of routes for `/amenities` and `/amenities/<amenity_id>`.
+- Supports `POST`, `GET`, `PUT`, and `DELETE` methods.
+- Added input validation and handled errors appropriately.
+
+---
+
+### 🔹 Task 5: Handle Missing Routes and Errors
+
+- Implemented proper error handling:
+  - `404 Not Found` for invalid endpoints
+  - `400 Bad Request` for malformed JSON
+- Used Flask error handlers to ensure all error responses are JSON formatted.
+
+---
+
+### 🔹 Task 6: Testing and Validation
+
+- Manually tested all endpoints using `curl`.
+- Validated:
+  - Successful creation and update of objects
+  - Error responses for invalid input
+  - Required fields missing
+  - Wrong data types or non-existent IDs
+- Ensured appropriate HTTP response codes are returned.
+
+Examples:
+
+**Create a User:**
+
+curl -X POST http://127.0.0.1:5000/api/v1/users/
+-H "Content-Type: application/json"
+-d '{"email": "user@example.com", "password": "1234"}'
+
+
+**Update a User:**
+
+تحرير
+
+curl -X PUT http://127.0.0.1:5000/api/v1/users/<user_id>
+-H "Content-Type: application/json"
+-d '{"first_name": "UpdatedName"}
+
+
+**Delete a User:**
+
+curl -X DELETE http://127.0.0.1:5000/api/v1/users/<user_id>
+
+
+
+
+
+---
+
+## 📂 Project Structure
+
+hbnb/
+├── api/
+│ └── v1/
+│ ├── app.py
+│ └── views/
+│ ├── index.py
+│ ├── places.py
+│ ├── users.py
+│ ├── states.py
+│ ├── cities.py
+│ └── amenities.py
+├── models/
+│ ├── place.py
+│ ├── user.py
+│ ├── state.py
+│ ├── city.py
+│ └── amenity.py
+
+
+
+---
+
+## ✅ Testing Tips
+
+- Always set `Content-Type: application/json` when using `POST` or `PUT`.
+- Use `curl -i` to show response headers and status codes.
+- Test both successful and error scenarios.
+- Make sure each endpoint returns valid JSON.
+
+---
+
+
+
+## 📌 Notes
+
+- All endpoints follow RESTful principles.
+- Input and output data is strictly JSON.
+- Proper testing and validation are essential for backend quality.
+
+
+
+
 
 ## 👩‍💻 Contributing Team
 
