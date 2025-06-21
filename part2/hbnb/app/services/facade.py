@@ -91,41 +91,61 @@ class HBnBFacade:
         return place.to_dict()
 
         # --- Review methods ---
-    def create_review(self, review_data):
-        text = review_data.get('text')
-        rating = review_data.get('rating')
-        place_id = review_data.get('place_id')
-        user_id = review_data.get('user_id')
+def create_review(self, review_data):
+    text = review_data.get('text')
+    rating = review_data.get('rating')
+    place_id = review_data.get('place_id')
+    user_id = review_data.get('user_id')
 
-        if not text:
-            raise ValueError("Review text is required")
-        if not (1 <= rating <= 5):
-            raise ValueError("Rating must be between 1 and 5")
+    if not text:
+        raise ValueError("Review text is required")
+    if not (1 <= rating <= 5):
+        raise ValueError("Rating must be between 1 and 5")
 
-        place = self.place_repo.get(place_id)
-        if not place:
-            raise ValueError("Place not found")
+    place = self.place_repo.get(place_id)
+    if not place:
+        raise ValueError("Place not found")
 
-        user = self.user_repo.get(user_id)
-        if not user:
-            raise ValueError("User not found")
+    user = self.user_repo.get(user_id)
+    if not user:
+        raise ValueError("User not found")
 
-        review = Review(text=text, rating=rating, place=place, user=user)
-        self.review_repo.add(review)
-        place.add_review(review)  
-        return review
+    review = Review(text=text, rating=rating, place=place, user=user)
+    self.review_repo.add(review)
+    place.add_review(review)  
+    return review.to_dict()
 
-    def get_review(self, review_id):
-        return self.review_repo.get(review_id)
+def get_review(self, review_id):
+    review = self.review_repo.get(review_id)
+    if review:
+        return review.to_dict()
+    return None
 
-    def get_all_reviews(self):
-        return self.review_repo.get_all()
+def get_all_reviews(self):
+    return [r.to_dict() for r in self.review_repo.get_all()]
 
-    def update_review(self, review_id, review_data):
-        review = self.review_repo.get(review_id)
-        if not review:
-            return None
-        for key, value in review_data.items():
-            setattr(review, key, value)
-        return review
+def get_reviews_by_place(self, place_id):
+    place = self.place_repo.get(place_id)
+    if not place:
+        raise ValueError("Place not found")
+    return [r.to_dict() for r in place.reviews]
+
+def update_review(self, review_id, review_data):
+    review = self.review_repo.get(review_id)
+    if not review:
+        return None
+    for key, value in review_data.items():
+        setattr(review, key, value)
+    return review.to_dict()
+
+def delete_review(self, review_id):
+    review = self.review_repo.get(review_id)
+    if not review:
+        return False
+    self.review_repo.delete(review_id)
+    # Also remove from place.reviews list
+    place = review.place
+    if place and review in place.reviews:
+        place.reviews.remove(review)
+    return True
 
