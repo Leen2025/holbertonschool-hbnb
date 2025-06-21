@@ -90,12 +90,12 @@ class HBnBFacade:
         self.place_repo.add(place)
         return place.to_dict()
 
-        # --- Review methods ---
-        def create_review(self, review_data):
-            text = review_data.get('text')
-            rating = review_data.get('rating')
-            place_id = review_data.get('place_id')
-            user_id = review_data.get('user_id')
+    # --- Review methods ---
+    def create_review(self, review_data):
+        text = review_data.get('text')
+        rating = review_data.get('rating')
+        place_id = review_data.get('place_id')
+        user_id = review_data.get('user_id')
 
         if not text:
             raise ValueError("Review text is required")
