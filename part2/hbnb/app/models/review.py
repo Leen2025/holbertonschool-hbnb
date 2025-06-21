@@ -7,7 +7,6 @@ class Review(BaseModel):
             raise ValueError("Review text is required")
         if not (1 <= rating <= 5):
             raise ValueError("Rating must be between 1 and 5")
-
         self.text = text
         self.rating = rating
         self.place = place
@@ -18,11 +17,6 @@ class Review(BaseModel):
             "id": self.id,
             "text": self.text,
             "rating": self.rating,
-            "place_id": self.place.id if self.place else None,
-            "user": {
-                "id": self.user.id,
-                "first_name": self.user.first_name,
-                "last_name": self.user.last_name,
-                "email": self.user.email
-            } if self.user else None
+            "user_id": self.user.id if self.user else None,
+            "place_id": self.place.id if self.place else None
         }
