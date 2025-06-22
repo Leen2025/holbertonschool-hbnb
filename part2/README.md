@@ -127,23 +127,35 @@ curl -X DELETE http://127.0.0.1:5000/api/v1/users/<user_id>
 
 ## 📂 Project Structure
 
-hbnb/
-├── api/
-│ └── v1/
-│ ├── app.py
-│ └── views/
-│ ├── index.py
-│ ├── places.py
-│ ├── users.py
-│ ├── states.py
-│ ├── cities.py
-│ └── amenities.py
-├── models/
-│ ├── place.py
-│ ├── user.py
-│ ├── state.py
-│ ├── city.py
-│ └── amenity.py
+ ```text
+    hbnb/
+    ├── app/
+    │   ├── __init__.py
+    │   ├── api/
+    │   │   ├── __init__.py
+    │   │   ├── v1/
+    │   │       ├── __init__.py
+    │   │       ├── users.py
+    │   │       ├── places.py
+    │   │       ├── reviews.py
+    │   │       ├── amenities.py
+    │   ├── models/
+    │   │   ├── __init__.py
+    │   │   ├── user.py
+    │   │   ├── place.py
+    │   │   ├── review.py
+    │   │   ├── amenity.py
+    │   ├── services/
+    │   │   ├── __init__.py
+    │   │   ├── facade.py
+    │   ├── persistence/
+    │       ├── __init__.py
+    │       ├── repository.py
+    ├── run.py
+    ├── config.py
+    ├── requirements.txt
+    ├── README.md
+    ```
 
 
 
