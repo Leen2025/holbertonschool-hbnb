@@ -252,7 +252,7 @@ If you'd like to explore all the diagrams and illustrations used in this project
 
 ## 🧠 Overview
 
-This part of the HBnB project focuses on implementing the **Business Logic** and **API Endpoints** using Python and Flask. It builds upon the foundational elements of the application to provide RESTful services that manage core models such as `User`, `Place`, `State`, `City`, and more.
+This part of the project focuses on implementing the core functionality of the application by establishing its structure, defining the business logic through class development, and creating the necessary API endpoints. The objective is to bring the documented architecture to life by enabling the creation and management of key resources such as users, places, reviews, and amenities. All components are designed in accordance with best practices for API development, ensuring scalability, modularity, and maintainability throughout the application.
 
 ---
 
