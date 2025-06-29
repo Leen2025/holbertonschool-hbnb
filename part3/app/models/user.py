@@ -1,7 +1,7 @@
 # app/models/user.py
 
 from flask_sqlalchemy import SQLAlchemy
-from app import db, bcrypt
+from app.extensions import db, bcrypt
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -18,4 +18,4 @@ class User(db.Model):
 
     def verify_password(self, password):
         """Verifies if the provided password matches the hashed password."""
-        return bcrypt.check_password_hash(self.password, password)
+        return bcrypt.check_password_hash(self.password, passwordi)
