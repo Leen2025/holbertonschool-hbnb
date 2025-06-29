@@ -1,13 +1,11 @@
 # app/models/user.py
 
-from app import bcrypt
 from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from app import db, bcrypt
 
 class User(db.Model):
     __tablename__ = 'users'
-    
+
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
