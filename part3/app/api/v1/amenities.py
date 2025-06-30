@@ -1,4 +1,5 @@
 from flask_restx import Namespace, Resource, fields
+from flask_jwt_extended import jwt_required
 from app.services import facade
 
 api = Namespace('amenities', description='Amenity operations')
@@ -12,10 +13,14 @@ class AmenityList(Resource):
     @api.expect(amenity_model, validate=True)
     @api.response(201, 'Amenity created')
     @api.response(400, 'Invalid input')
+    @jwt_required()
     def post(self):
-        data = api.payload
-        new_amenity = facade.create_amenity(data)
-        return {'id': new_amenity.id, 'name': new_amenity.name}, 201
+        try:
+            data = api.payload
+            new_amenity = facade.create_amenity(data)
+            return {'id': new_amenity.id, 'name': new_amenity.name}, 201
+        except Exception as e:
+            return {'error': str(e)}, 400
 
     @api.response(200, 'List of amenities retrieved')
     def get(self):
@@ -34,10 +39,15 @@ class AmenityResource(Resource):
 
     @api.expect(amenity_model, validate=True)
     @api.response(200, 'Amenity updated')
+    @api.response(400, 'Invalid input')
     @api.response(404, 'Amenity not found')
+    @jwt_required()
     def put(self, amenity_id):
-        data = api.payload
-        updated = facade.update_amenity(amenity_id, data)
-        if not updated:
-            return {'error': 'Amenity not found'}, 404
-        return {'id': updated.id, 'name': updated.name}, 200
+        try:
+            data = api.payload
+            updated = facade.update_amenity(amenity_id, data)
+            if not updated:
+                return {'error': 'Amenity not found'}, 404
+            return {'id': updated.id, 'name': updated.name}, 200
+        except Exception as e:
+            return {'error': str(e)}, 400

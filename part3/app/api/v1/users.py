@@ -1,15 +1,9 @@
-# app/api/v1/users.py
-
 from flask_restx import Namespace, Resource, fields
 from app.services import facade
-from app.models.user import User
-from app.extensions import db
 from flask_jwt_extended import jwt_required, get_jwt_identity
-
 
 api = Namespace('users', description='User operations')
 
-# User model for creating and updating users
 user_model = api.model('User', {
     'first_name': fields.String(required=True, description="User's first name"),
     'last_name': fields.String(required=True, description="User's last name"),
@@ -17,13 +11,11 @@ user_model = api.model('User', {
     'password': fields.String(required=True, description="User's password")
 })
 
-# Model for partial updates (used in PUT)
 user_update_model = api.model('UserUpdate', {
     'first_name': fields.String(description="User's first name"),
     'last_name': fields.String(description="User's last name"),
     'email': fields.String(description="User's email address"),
 })
-
 
 @api.route('/')
 class UserList(Resource):
@@ -127,3 +119,25 @@ class VerifyPassword(Resource):
             return {'message': 'Password is correct'}, 200
         else:
             return {'error': 'Incorrect password'}, 401
+
+@api.route('/<user_id>')
+class UserDelete(Resource):
+    @api.response(200, 'User deleted successfully')
+    @api.response(403, 'Unauthorized action')
+    @api.response(404, 'User not found')
+    @jwt_required()
+    def delete(self, user_id):
+        """Delete user (only self)"""
+        current_user_id = get_jwt_identity()
+        if str(current_user_id) != str(user_id):
+            return {'error': 'Unauthorized action'}, 403
+
+        user = facade.get_user(user_id)
+        if not user:
+            return {'error': 'User not found'}, 404
+
+        try:
+            facade.delete_user(user_id)
+            return {'message': 'User deleted successfully'}, 200
+        except Exception as e:
+            return {'error': str(e)}, 400
