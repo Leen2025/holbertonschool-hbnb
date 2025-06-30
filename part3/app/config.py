@@ -3,11 +3,12 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config:
-    SECRET_KEY = os.getenv('SECRET_KEY', 'default_secret_key')
-    DEBUG = False
-    SQLALCHEMY_TRACK_MODIFICATIONS = False 
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'dev.db')
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key-here')
+
 
 class DevelopmentConfig(Config):
     DEBUG = True
