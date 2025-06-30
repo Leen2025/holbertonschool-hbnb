@@ -1,7 +1,7 @@
-from app.models.base_model import BaseModel
+# app/models/review.py
 from app.extensions import db
 
-class Review(BaseModel, db.Model):
+class Review(db.Model):
     __tablename__ = 'reviews'
 
     id = db.Column(db.Integer, primary_key=True)

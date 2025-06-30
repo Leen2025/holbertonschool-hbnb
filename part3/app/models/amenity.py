@@ -1,18 +1,21 @@
-from app.models.base_model import BaseModel
+from app.extensions import db
 
-class Amenity(BaseModel):
-    def __init__(self, name):
-        super().__init__()
+# Association table for many-to-many relationship between Place and Amenity
+place_amenities = db.Table('place_amenities',
+    db.Column('place_id', db.Integer, db.ForeignKey('places.id'), primary_key=True),
+    db.Column('amenity_id', db.Integer, db.ForeignKey('amenities.id'), primary_key=True)
+)
 
-        if not name:
-            raise ValueError("Amenity name is required")
-        if len(name) > 50:
-            raise ValueError("Amenity name must be 50 characters or fewer")
+class Amenity(db.Model):
+    __tablename__ = 'amenities'
 
-        self.name = name
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False, unique=True)
+
+    places = db.relationship('Place', secondary=place_amenities, back_populates='amenities')
 
     def to_dict(self):
         return {
-            "id": self.id,
-            "name": self.name
+            'id': self.id,
+            'name': self.name
         }
