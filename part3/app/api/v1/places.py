@@ -1,4 +1,5 @@
 from flask_restx import Namespace, Resource, fields
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.services import facade
 
 api = Namespace('places', description='Place operations')
@@ -30,18 +31,22 @@ place_model = api.model('Place', {
     'price': fields.Float(required=True, description='Price per night'),
     'latitude': fields.Float(required=True, description='Latitude of the place'),
     'longitude': fields.Float(required=True, description='Longitude of the place'),
-    'owner_id': fields.String(required=True, description='ID of the owner'),
     'amenities': fields.List(fields.String, required=True, description="List of amenities IDs")
 })
+
 
 @api.route('/')
 class PlaceList(Resource):
     @api.expect(place_model)
     @api.response(201, 'Place successfully created')
     @api.response(400, 'Invalid input data')
+    @jwt_required()
     def post(self):
+        """Create a new place (owner = current user)"""
         try:
+            current_user_id = get_jwt_identity()
             place_data = api.payload
+            place_data['owner_id'] = current_user_id  # Enforce ownership
             place_dict = facade.create_place(place_data)
             return place_dict, 201
         except Exception as e:
@@ -51,7 +56,6 @@ class PlaceList(Resource):
     def get(self):
         """Retrieve a list of all places"""
         places = facade.get_all_places()
-        # Return simplified info for each place
         return [{
             "id": p.id,
             "title": p.title,
@@ -102,13 +106,19 @@ class PlaceResource(Resource):
 
     @api.expect(place_model)
     @api.response(200, 'Place updated successfully')
+    @api.response(403, 'Unauthorized action')
     @api.response(404, 'Place not found')
     @api.response(400, 'Invalid input data')
+    @jwt_required()
     def put(self, place_id):
-        """Update a place's information"""
+        """Update an existing place (owner only)"""
+        current_user_id = get_jwt_identity()
         place = facade.get_place(place_id)
         if not place:
             return {"error": "Place not found"}, 404
+
+        if str(place.owner_id) != str(current_user_id):
+            return {"error": "Unauthorized action"}, 403
 
         try:
             updated = facade.update_place(place_id, api.payload)
