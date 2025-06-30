@@ -1,4 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
+# app/models/user.py
 from app.extensions import db, bcrypt
 
 class User(db.Model):
@@ -10,16 +10,16 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
 
+    places = db.relationship('Place', back_populates='owner', cascade='all, delete-orphan')
+    reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
+
     def hash_password(self, password):
-        """Hashes the password before storing it."""
         self.password = bcrypt.generate_password_hash(password).decode('utf-8')
 
     def verify_password(self, password):
-        """Verifies if the provided password matches the hashed password."""
         return bcrypt.check_password_hash(self.password, password)
 
     def to_dict(self):
-        """Return user info as a dict, without password."""
         return {
             "id": self.id,
             "first_name": self.first_name,
