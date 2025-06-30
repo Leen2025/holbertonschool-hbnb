@@ -101,3 +101,24 @@ class UserResource(Resource):
             'last_name': updated_user.last_name,
             'email': updated_user.email
         }, 200
+
+
+verify_model = api.model('VerifyPassword', {
+    'email': fields.String(required=True, description='User email'),
+    'password': fields.String(required=True, description='User password')
+})
+
+@api.route('/verify')
+class VerifyPassword(Resource):
+    @api.expect(verify_model, validate=True)
+    def post(self):
+        """Verify user password"""
+        data = api.payload
+        user = facade.get_user_by_email(data['email'])
+        if not user:
+            return {'error': 'User not found'}, 404
+
+        if user.verify_password(data['password']):
+            return {'message': 'Password is correct'}, 200
+        else:
+            return {'error': 'Incorrect password'}, 401
