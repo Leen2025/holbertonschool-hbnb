@@ -10,7 +10,6 @@ review_model = api.model('Review', {
     'place_id': fields.String(required=True, description='ID of the place')
 })
 
-
 @api.route('/')
 class ReviewList(Resource):
     @api.expect(review_model)
@@ -25,14 +24,13 @@ class ReviewList(Resource):
             current_user_id = get_jwt_identity()
             review_data['user_id'] = current_user_id
 
-            # Prevent self-review
             place = facade.get_place(review_data['place_id'])
             if not place:
                 return {"error": "Place not found"}, 404
+
             if str(place.owner_id) == str(current_user_id):
                 return {"error": "You cannot review your own place"}, 403
 
-            # Prevent duplicate review
             if facade.user_already_reviewed_place(current_user_id, place.id):
                 return {"error": "You already reviewed this place"}, 403
 
@@ -44,8 +42,11 @@ class ReviewList(Resource):
     @api.response(200, 'List of reviews retrieved successfully')
     def get(self):
         """Get all reviews (public)"""
-        reviews = facade.get_all_reviews()
-        return reviews, 200
+        try:
+            reviews = facade.get_all_reviews()
+            return reviews, 200
+        except Exception as e:
+            return {"error": str(e)}, 400
 
 
 @api.route('/<review_id>')
@@ -102,8 +103,11 @@ class PlaceReviewList(Resource):
     @api.response(404, 'Place not found')
     def get(self, place_id):
         """Get all reviews for a specific place (public)"""
+        place = facade.get_place(place_id)
+        if not place:
+            return {"error": "Place not found"}, 404
         try:
             reviews = facade.get_reviews_by_place(place_id)
             return reviews, 200
         except Exception as e:
-            return {"error": str(e)}, 403
+            return {"error": str(e)}, 400
