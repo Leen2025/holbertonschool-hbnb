@@ -4,6 +4,7 @@ from flask_restx import Namespace, Resource, fields
 from app.services import facade
 from app.models.user import User
 from app.extensions import db
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 api = Namespace('users', description='User operations')
@@ -78,22 +79,26 @@ class UserResource(Resource):
 
     @api.expect(user_update_model, validate=True)
     @api.response(200, 'User updated successfully')
-    @api.response(400, 'Email already in use')
+    @api.response(400, 'You cannot modify email or password')
+    @api.response(403, 'Unauthorized action')
     @api.response(404, 'User not found')
+    @jwt_required()
     def put(self, user_id):
-        """Update an existing user"""
-        data = api.payload
+        """Update an existing user (only self)"""
+        current_user_id = get_jwt_identity()
+        if str(current_user_id) != str(user_id):
+            return {'error': 'Unauthorized action'}, 403
+
         user = facade.get_user(user_id)
         if not user:
             return {'error': 'User not found'}, 404
 
-        # If email is updated, check for uniqueness
-        if 'email' in data:
-            existing_user = facade.get_user_by_email(data['email'])
-            if existing_user and existing_user.id != user_id:
-                return {'error': 'Email already in use'}, 400
+        data = api.payload
 
-        user_data = api.payload
+        # Disallow updating email or password
+        if 'email' in data or 'password' in data:
+            return {'error': 'You cannot modify email or password'}, 400
+
         updated_user = facade.update_user(user_id, data)
         return {
             'id': updated_user.id,
