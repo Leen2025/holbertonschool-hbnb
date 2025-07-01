@@ -1,5 +1,3 @@
-# app/api/v1/auth.py
-
 from flask_restx import Namespace, Resource, fields
 from flask_jwt_extended import create_access_token
 from app.services import facade
@@ -21,6 +19,16 @@ class Login(Resource):
         if not user or not user.verify_password(credentials['password']):
             return {'error': 'Invalid credentials'}, 401
 
-        access_token = create_access_token(identity={'id': str(user.id), 'is_admin': user.is_admin})
-        return {'access_token': access_token}, 199
+        access_token = create_access_token(
+            identity=str(user.id),
+            additional_claims={"is_admin": user.is_admin}
+        )
 
+        return {
+            'access_token': access_token,
+            'user': {
+                'id': user.id,
+                'email': user.email,
+                'is_admin': user.is_admin
+            }
+        }, 200

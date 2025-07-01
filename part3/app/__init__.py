@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restx import Api
 from flask_jwt_extended import JWTManager
+from flask_migrate import Migrate
 from app.extensions import db, bcrypt
 from app.models import place, amenity, user, review
 from app.api.v1.auth import api as auth_ns
@@ -15,6 +16,9 @@ from app.api.v1.protected import api as protected_ns
 
 from app.config import DevelopmentConfig
 
+db = db
+bcrypt = bcrypt
+migrate = Migrate()
 jwt = JWTManager()
 
 def create_app(config_class=DevelopmentConfig):
@@ -23,7 +27,8 @@ def create_app(config_class=DevelopmentConfig):
 
     db.init_app(app)
     bcrypt.init_app(app)
-    jwt.init_app(app)  
+    jwt.init_app(app)
+    migrate.init_app(app, db)
 
     api = Api(app, version='1.0', title='HBnB API', description='HBnB Application API')
 
