@@ -3,6 +3,22 @@ from app.models.place import Place
 from app.models.amenity import Amenity
 from app.extensions import db
 
+#------------task 5 update _____________
+from app.repositories.sqlalchemy_repository import SQLAlchemyRepository
+
+repo = SQLAlchemyRepository()
+
+def get_user(user_id):
+    return repo.get_user_by_id(user_id)
+
+def get_user_by_email(email):
+    return repo.get_user_by_email(email)
+
+def create_user(data):
+    return repo.create_user(data)
+
+def update_user(user_id, data):
+    return repo.update_user(user_id, data)
 
 # ---------- User-related services ----------
 
