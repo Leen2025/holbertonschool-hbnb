@@ -10,9 +10,9 @@ db.create_all()
 
 # Insert user
 user = User(
-    id="user-100",
-    email="leen@example.com",
-    password="leen12345",
+    id=100,
+    email="danah@example.com",
+    password="danah12345",
     first_name="Danah",
     last_name="Alshehri",
     is_admin=False
