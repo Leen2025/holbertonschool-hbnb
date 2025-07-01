@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restx import Api
-from app.extensions import db, bcrypt  # استيراد فقط، لا تعيد تعريف هنا
+from app.extensions import db, bcrypt
+from app.models import place, amenity, user, review
 
 from app.api.v1.users import api as users_ns
 from app.api.v1.amenities import api as amenities_ns
