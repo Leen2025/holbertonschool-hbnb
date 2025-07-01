@@ -12,11 +12,13 @@ db.create_all()
 user = User(
     id=100,
     email="danah@example.com",
-    password="danah12345",
     first_name="Danah",
     last_name="Alshehri",
     is_admin=False
 )
+# Hash the password properly
+user.set_password("danah12345")
+
 db.session.add(user)
 db.session.commit()
 print("User created.")
