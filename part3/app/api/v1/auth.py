@@ -1,3 +1,15 @@
+from flask_restx import Namespace, Resource, fields
+from flask_jwt_extended import create_access_token
+from app.services import facade
+import logging
+
+api = Namespace('auth', description='Authentication operations')
+
+login_model = api.model('Login', {
+    'email': fields.String(required=True, description='User email'),
+    'password': fields.String(required=True, description='User password'),
+})
+
 @api.route('/login')
 class Login(Resource):
     @api.expect(login_model)
