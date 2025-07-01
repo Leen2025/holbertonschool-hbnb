@@ -1,2 +1,4 @@
-from app.models.place import Place
-from app.models.amenity import Amenity
+from .place import Place
+from .amenity import Amenity
+from .user import User
+from .review import Review
