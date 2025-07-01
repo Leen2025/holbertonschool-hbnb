@@ -1,17 +1,21 @@
 from app import db, create_app
 from app.models.user import User
+import os
 
 app = create_app()
 app.app_context().push()
 
-# Create a test user
+# Create tables (creates dev.db if missing)
+db.create_all()
+
+# Insert user
 user = User(
     id="user-100",
-    email="danah@example.com",
-    password="danah12345",  # If you use password hashing, hash this!
+    email="leen@example.com",
+    password="leen12345",
     first_name="Danah",
     last_name="Alshehri",
-    is_admin=False 
+    is_admin=False
 )
 db.session.add(user)
 db.session.commit()
