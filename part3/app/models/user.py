@@ -25,4 +25,8 @@ class User(db.Model):
             "first_name": self.first_name,
             "last_name": self.last_name,
             "email": self.email
-        }
+            }
+
+from app.models.place import Place
+from app.models.review import Review
+
