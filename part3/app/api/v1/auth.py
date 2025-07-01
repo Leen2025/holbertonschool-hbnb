@@ -22,5 +22,11 @@ class Login(Resource):
             return {'error': 'Invalid credentials'}, 401
 
         access_token = create_access_token(identity={'id': str(user.id), 'is_admin': user.is_admin})
-        return {'access_token': access_token}, 199
-
+        return {
+    'access_token': access_token,
+    'user': {
+        'id': user.id,
+        'email': user.email,
+        'is_admin': user.is_admin
+    }
+}, 200
