@@ -15,6 +15,9 @@ from app.api.v1.protected import api as protected_ns
 
 from app.config import DevelopmentConfig
 
+db = db
+bcrypt = bcrypt
+migrate = Migrate()
 jwt = JWTManager()
 
 def create_app(config_class=DevelopmentConfig):
