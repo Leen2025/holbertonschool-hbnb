@@ -14,12 +14,11 @@ class User(db.Model):
     reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
     def set_password(self, plaintext_password):
-        """Hash and store the password."""
-        self.password = bcrypt.generate_password_hash(plaintext_password).decode('utf-8')
+    self.password = bcrypt.generate_password_hash(plaintext_password).decode('utf-8')
 
     def verify_password(self, plaintext_password):
-        """Check hashed password."""
-        return bcrypt.check_password_hash(self.password, plaintext_password)
+    return bcrypt.check_password_hash(self.password, plaintext_password)
+
 
     def to_dict(self):
         return {

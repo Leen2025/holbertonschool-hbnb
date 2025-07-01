@@ -16,7 +16,7 @@ def create_user(data):
         last_name=data['last_name'],
         email=data['email']
     )
-    user.hash_password(data['password'])
+    user.set_password(data['password'])
     db.session.add(user)
     db.session.commit()
     return user
