@@ -33,3 +33,24 @@ def update_user(user_id, data):
         user.email = data['email']
     db.session.commit()
     return user
+from app.models.place import Place
+from app.models.amenity import Amenity
+
+def create_place(data):
+    place = Place(
+        title=data['title'],
+        description=data.get('description', ''),
+        price=data['price'],
+        latitude=data['latitude'],
+        longitude=data['longitude'],
+        owner_id=data['owner_id']
+    )
+
+    # Add amenities if provided
+    if 'amenities' in data:
+        amenities = Amenity.query.filter(Amenity.id.in_(data['amenities'])).all()
+        place.amenities = amenities
+
+    db.session.add(place)
+    db.session.commit()
+    return place.to_dict()
