@@ -1,24 +1,15 @@
-from app import db, create_app
-from app.models.user import User
-import os
+from app import create_app
+from app.services import facade
 
 app = create_app()
 app.app_context().push()
 
-# Create tables (creates dev.db if missing)
-db.create_all()
+user_data = {
+    "first_name": "Danah",
+    "last_name": "Alshehri",
+    "email": "danah@example.com",
+    "password": "danah12345"
+}
 
-# Insert user
-user = User(
-    id=100,
-    email="danah@example.com",
-    first_name="Danah",
-    last_name="Alshehri",
-    is_admin=False
-)
-# Hash the password properly
-user.set_password("danah12345")
-
-db.session.add(user)
-db.session.commit()
-print("User created.")
+user = facade.create_user(user_data)
+print(f"User created with id: {user.id}")
