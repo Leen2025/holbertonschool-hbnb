@@ -10,7 +10,8 @@ user = User(
     email="danah@example.com",
     password="danah12345",  # If you use password hashing, hash this!
     first_name="Danah",
-    last_name="Alshehri"
+    last_name="Alshehri",
+    is_admin=False 
 )
 db.session.add(user)
 db.session.commit()
