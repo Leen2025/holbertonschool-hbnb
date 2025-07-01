@@ -1,14 +1,11 @@
 from app.extensions import db
 from app import create_app
-
-
-from app.models.user import User
-from app.models.place import Place
-from app.models.review import Review
-from app.models.amenity import Amenity
-from app.models.amenity import place_amenities
+import os
 
 app = create_app()
+
+# Print the actual database URI being used by SQLAlchemy
+print("Database URI:", app.config['SQLALCHEMY_DATABASE_URI'])
 
 with app.app_context():
     db.create_all()
