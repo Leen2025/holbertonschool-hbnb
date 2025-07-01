@@ -53,20 +53,18 @@ def create_place(data):
             owner_id=data['owner_id']
         )
 
-        # Convert amenity IDs to integers if needed
-        amenity_ids = [int(aid) for aid in data.get('amenities', [])]
-        if amenity_ids:
-            amenities = Amenity.query.filter(Amenity.id.in_(amenity_ids)).all()
+        if 'amenities' in data:
+            amenities = Amenity.query.filter(Amenity.id.in_(data['amenities'])).all()
             place.amenities = amenities
 
         db.session.add(place)
         db.session.commit()
-
         return place.to_dict()
 
     except Exception as e:
-        db.session.rollback()
-        raise e
+        print(f"Create place failed: {e}")
+        raise
+
 
 
 def get_place(place_id):
