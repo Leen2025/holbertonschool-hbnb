@@ -1,5 +1,10 @@
 from app.models.user import User
+from app.models.place import Place
+from app.models.amenity import Amenity
 from app.extensions import db
+
+
+# ---------- User-related services ----------
 
 def get_all_users():
     return User.query.all()
@@ -33,24 +38,75 @@ def update_user(user_id, data):
         user.email = data['email']
     db.session.commit()
     return user
-from app.models.place import Place
-from app.models.amenity import Amenity
+
+
+# ---------- Place-related services ----------
 
 def create_place(data):
-    place = Place(
-        title=data['title'],
-        description=data.get('description', ''),
-        price=data['price'],
-        latitude=data['latitude'],
-        longitude=data['longitude'],
-        owner_id=data['owner_id']
-    )
+    try:
+        place = Place(
+            title=data['title'],
+            description=data.get('description', ''),
+            price=data['price'],
+            latitude=data['latitude'],
+            longitude=data['longitude'],
+            owner_id=data['owner_id']
+        )
 
-    # Add amenities if provided
+        # Convert amenity IDs to integers if needed
+        amenity_ids = [int(aid) for aid in data.get('amenities', [])]
+        if amenity_ids:
+            amenities = Amenity.query.filter(Amenity.id.in_(amenity_ids)).all()
+            place.amenities = amenities
+
+        db.session.add(place)
+        db.session.commit()
+
+        return place.to_dict()
+
+    except Exception as e:
+        db.session.rollback()
+        raise e
+
+
+def get_place(place_id):
+    return Place.query.get(place_id)
+
+def get_all_places():
+    return Place.query.all()
+
+def update_place(place_id, data):
+    place = get_place(place_id)
+    if not place:
+        return None
+
+    if 'title' in data:
+        place.title = data['title']
+    if 'description' in data:
+        place.description = data['description']
+    if 'price' in data:
+        place.price = data['price']
+    if 'latitude' in data:
+        place.latitude = data['latitude']
+    if 'longitude' in data:
+        place.longitude = data['longitude']
     if 'amenities' in data:
-        amenities = Amenity.query.filter(Amenity.id.in_(data['amenities'])).all()
+        amenity_ids = [int(aid) for aid in data['amenities']]
+        amenities = Amenity.query.filter(Amenity.id.in_(amenity_ids)).all()
         place.amenities = amenities
 
-    db.session.add(place)
     db.session.commit()
-    return place.to_dict()
+    return place
+
+def delete_place(place_id):
+    place = get_place(place_id)
+    if place:
+        db.session.delete(place)
+        db.session.commit()
+        return True
+    return False
+
+
+# ---------- Amenity helper ----------
+def get_amenity(amenity_id):
+    return Amenity.query.get(amenity_id)
