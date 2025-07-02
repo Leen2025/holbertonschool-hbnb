@@ -1,1 +1,1 @@
-📎 View the full database diagram here: [ER Diagram](./diagram.md)
+📎 View the full database diagram here: [ER Diagram](./er_diagram.md)
