@@ -1,6 +1,7 @@
 from app.extensions import db, bcrypt
+from app.models.base_model import BaseModel
 
-class User(db.Model):
+class User(BaseModel):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -13,11 +14,11 @@ class User(db.Model):
     places = db.relationship('Place', back_populates='owner', cascade='all, delete-orphan')
     reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
-    def set_password(self, plaintext_password):
-        self.password = bcrypt.generate_password_hash(plaintext_password).decode('utf-8')
+    def hash_password(self, password):
+         self.password = bcrypt.generate_password_hash(password).decode('utf-8')
 
-    def verify_password(self, plaintext_password):
-        return bcrypt.check_password_hash(self.password, plaintext_password)
+    def verify_password(self, password):
+        return bcrypt.check_password_hash(self.password, password)
 
 
     def to_dict(self):
