@@ -2,11 +2,12 @@ from app.models.user import User
 from app.models.place import Place
 from app.models.amenity import Amenity
 from app.extensions import db
-
-#------------task 5 update _____________
+from app.repositories.user_repository import UserRepository
 from app.repositories.sqlalchemy_repository import SQLAlchemyRepository
 
-repo = SQLAlchemyRepository()
+from app.repositories.user_repository import UserRepository
+
+user_repo = UserRepository()
 
 def get_user(user_id):
     return repo.get_user_by_id(user_id)
@@ -23,13 +24,13 @@ def update_user(user_id, data):
 # ---------- User-related services ----------
 
 def get_all_users():
-    return User.query.all()
+    return user_repo.get_all()
 
 def get_user_by_email(email):
-    return User.query.filter_by(email=email).first()
+    return user_repo.get_user_by_email(email)
 
 def get_user(user_id):
-    return User.query.get(user_id)
+     return user_repo.get(user_id)
 
 def create_user(data):
     user = User(
@@ -52,7 +53,7 @@ def update_user(user_id, data):
         user.last_name = data['last_name']
     if 'email' in data:
         user.email = data['email']
-    db.session.commit()
+    user_repo.update()
     return user
 
 
