@@ -1,44 +1,42 @@
 ## 📊 Entity-Relationship Diagram (ERD)
 
-The following diagram represents the database schema for the HBnB project using Mermaid.js:
-
 ```mermaid
 erDiagram
     USER {
-        CHAR(36) id PK
-        VARCHAR first_name
-        VARCHAR last_name
-        VARCHAR email UNIQUE
-        VARCHAR password
-        BOOLEAN is_admin
+        string id PK
+        string first_name
+        string last_name
+        string email
+        string password
+        boolean is_admin
     }
 
     PLACE {
-        CHAR(36) id PK
-        VARCHAR title
-        TEXT description
-        DECIMAL price
-        FLOAT latitude
-        FLOAT longitude
-        CHAR(36) owner_id FK
+        string id PK
+        string title
+        string description
+        float price
+        float latitude
+        float longitude
+        string owner_id FK
     }
 
     REVIEW {
-        CHAR(36) id PK
-        TEXT text
-        INT rating
-        CHAR(36) user_id FK
-        CHAR(36) place_id FK
+        string id PK
+        string text
+        int rating
+        string user_id FK
+        string place_id FK
     }
 
     AMENITY {
-        CHAR(36) id PK
-        VARCHAR name UNIQUE
+        string id PK
+        string name
     }
 
     PLACE_AMENITY {
-        CHAR(36) place_id PK, FK
-        CHAR(36) amenity_id PK, FK
+        string place_id PK, FK
+        string amenity_id PK, FK
     }
 
     USER ||--o{ PLACE : owns
