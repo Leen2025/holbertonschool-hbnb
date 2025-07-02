@@ -1,6 +1,9 @@
 Task 10. Generate Database Diagrams
+## 📊 Entity-Relationship Diagram (ERD)
 
+The following diagram represents the database schema for the HBnB project using Mermaid.js:
 
+```mermaid
 erDiagram
     USER {
         CHAR(36) id PK
