@@ -146,6 +146,9 @@ UUID Generation in Python
 <img src="https://github.com/user-attachments/assets/adaeaed7-d3d7-42d4-b3a6-ab80343f1878" alt="Image" width="500" />
 <img src="https://github.com/user-attachments/assets/e22a6408-12c8-4cfa-bc19-0882e45c31e4" alt="Image" width="500" />
 
+<img src="https://github.com/user-attachments/assets/1f284e88-c20d-45c5-abb5-fefec56d31eb" alt="Welcome Image" width="400" />
+<br/>
+<img src="https://github.com/user-attachments/assets/f837eeff-3c5f-440e-82f6-0a2a5c6a86b8" alt="Tech Image" width="400" />
 
 
 # 📎 View the full database diagram here: [ER Diagram](./er_diagram.md)
