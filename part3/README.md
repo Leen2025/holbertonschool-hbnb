@@ -1,47 +1,35 @@
-
 # 🏠 HBnB - Home & Beyond Booking
+
+---
+
+![HBnB Banner](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80)
 
 ---
 
 ## 📖 Introduction
 
-Welcome to **HBnB** — a modern home booking and management system designed to provide flexible and secure user experiences, supporting both regular users and administrators to manage accounts, places, amenities, and reviews seamlessly.
+Welcome to **HBnB** — your modern, secure, and flexible home booking & management system. Whether you are a regular user or an administrator, **HBnB** lets you manage accounts, places, amenities, and reviews effortlessly with a clean architecture powered by modern tech.
 
-This project leverages cutting-edge technologies and a clean architectural design based on:
+**HBnB** combines:
 
-- **Flask RESTful API**  
-- **SQLAlchemy ORM** with SQLite during development  
-- **JWT for authentication and security**  
-- **bcrypt for password hashing**  
-- **Object-oriented programming and layered architecture**  
+- ⚡ **Flask RESTful API**  
+- 🐍 **SQLAlchemy ORM** with SQLite (development)  
+- 🔐 **JWT for authentication and authorization**  
+- 🔒 **bcrypt for secure password hashing**  
+- 📦 **Object-Oriented Programming & Layered Architecture**
 
 ---
 
 ## 🛠️ Features
 
-- **Role-Based Access Control (RBAC):**  
-  - Regular users manage only their own accounts, places, and reviews.  
-  - Admins have full privileges: create and modify any user, amenity, place, and review, bypassing ownership restrictions.
-
-- **Accurate Data Modeling:**  
-  - Core entities: User, Place, Review, Amenity.  
-  - Clear relationships between entities (one-to-many, many-to-many) with strong constraints ensuring data integrity.
-
-- **Flexible Database Design:**  
-  - UUIDs for unique global identifiers.  
-  - Unique constraints on critical fields (e.g., email, reviews per place per user).
-
-- **Repository Pattern:**  
-  - Unified CRUD operations using SQLAlchemyRepository.  
-  - Specialized UserRepository for user-specific queries and logic.
-
-- **Secure Password Management:**  
-  - Password hashing with bcrypt before storing.  
-  - Password verification implemented for authentication.
-
-- **Robust API Endpoints:**  
-  - Secure endpoints with JWT authentication.  
-  - Admin-restricted endpoints with clear permission checks.
+| Feature                         | Description                                                                                  |
+|--------------------------------|----------------------------------------------------------------------------------------------|
+| 🎭 **Role-Based Access Control** | Regular users manage their own data. Admins can manage all resources with full privileges.   |
+| 🧩 **Accurate Data Modeling**      | Core entities: User, Place, Review, Amenity with strong relationships & constraints.         |
+| 🔑 **UUID Identifiers**             | Globally unique IDs for all entities ensuring robust data consistency.                       |
+| 📚 **Repository Pattern**           | Generic SQLAlchemyRepository + specialized UserRepository for clean, maintainable code.      |
+| 🔐 **Secure Password Management**   | Passwords hashed via bcrypt before storage with password verification.                       |
+| 🚀 **Robust API Endpoints**          | JWT secured routes, admin-restricted endpoints, with precise permission checks.             |
 
 ---
 
@@ -50,48 +38,115 @@ This project leverages cutting-edge technologies and a clean architectural desig
 ### 1. Application Environment
 
 - Python 3.x  
-- Flask  
-- Flask-SQLAlchemy  
-- Flask-Bcrypt  
-- Flask-JWT-Extended  
+- Flask & Extensions: SQLAlchemy, Bcrypt, JWT Extended  
 
 ### 2. Project Structure
 
-app/
-├── init.py # App setup and DB initialization
-├── models/ # SQLAlchemy models
-│ ├── base_model.py # BaseModel with id and timestamps
-│ ├── user.py
-│ ├── place.py
-│ ├── review.py
-│ └── amenity.py
-├── persistence/ # Repository layer with SQLAlchemyRepository & UserRepository
-├── services/ # Business logic (Facade) layer
-└── api/ # API endpoints with role-based access control
-
-
-
-### 3. Database Design Highlights
-
-- **User:** UUID primary key, unique email, hashed password, is_admin flag.  
-- **Place:** UUID primary key, title, description, price, latitude, longitude, linked to a User (owner).  
-- **Review:** UUID primary key, text, rating (1-5), linked to a User and a Place.  
-- **Amenity:** UUID primary key, unique name.  
-- **Place_Amenity:** Association table for many-to-many relationship between Place and Amenity.
+# 🏠 HBnB - Home & Beyond Booking
 
 ---
 
-## ⚙️ Setup & Running Instructions
+![HBnB Banner](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80)
 
-1. **Install Dependencies**  
-   ```bash
-   pip install -r requirements.txt
- # Initialize Database
+---
+
+## 📖 Introduction
+
+Welcome to **HBnB** — your modern, secure, and flexible home booking & management system. Whether you are a regular user or an administrator, **HBnB** lets you manage accounts, places, amenities, and reviews effortlessly with a clean architecture powered by modern tech.
+
+**HBnB** combines:
+
+- ⚡ **Flask RESTful API**  
+- 🐍 **SQLAlchemy ORM** with SQLite (development)  
+- 🔐 **JWT for authentication and authorization**  
+- 🔒 **bcrypt for secure password hashing**  
+- 📦 **Object-Oriented Programming & Layered Architecture**
+
+---
+
+## 🛠️ Features
+
+| Feature                         | Description                                                                                  |
+|--------------------------------|----------------------------------------------------------------------------------------------|
+| 🎭 **Role-Based Access Control** | Regular users manage their own data. Admins can manage all resources with full privileges.   |
+| 🧩 **Accurate Data Modeling**      | Core entities: User, Place, Review, Amenity with strong relationships & constraints.         |
+| 🔑 **UUID Identifiers**             | Globally unique IDs for all entities ensuring robust data consistency.                       |
+| 📚 **Repository Pattern**           | Generic SQLAlchemyRepository + specialized UserRepository for clean, maintainable code.      |
+| 🔐 **Secure Password Management**   | Passwords hashed via bcrypt before storage with password verification.                       |
+| 🚀 **Robust API Endpoints**          | JWT secured routes, admin-restricted endpoints, with precise permission checks.             |
+
+---
+
+## 🏗️ Technical Architecture
+
+### 1. Application Environment
+
+- Python 3.x  
+- Flask & Extensions: SQLAlchemy, Bcrypt, JWT Extended  
+
+### 2. Project Structure
+
+```bash
+app/
+├── __init__.py           # App and DB setup
+├── models/               # SQLAlchemy ORM models
+│   ├── base_model.py     # BaseModel: UUID + timestamps
+│   ├── user.py           # User entity mapping
+│   ├── place.py          # Place entity mapping
+│   ├── review.py         # Review entity mapping
+│   └── amenity.py        # Amenity entity mapping
+├── persistence/          # Repositories layer
+│   ├── repository.py     # SQLAlchemyRepository & UserRepository
+├── services/             # Business logic layer (Facade pattern)
+└── api/                  # RESTful API endpoints with RBAC enforcement
+bash
+app/
+├── __init__.py           # App and DB setup
+├── models/               # SQLAlchemy ORM models
+│   ├── base_model.py     # BaseModel: UUID + timestamps
+│   ├── user.py           # User entity mapping
+│   ├── place.py          # Place entity mapping
+│   ├── review.py         # Review entity mapping
+│   └── amenity.py        # Amenity entity mapping
+├── persistence/          # Repositories layer
+│   ├── repository.py     # SQLAlchemyRepository & UserRepository
+├── services/             # Business logic layer (Facade pattern)
+└── api/                  # RESTful API endpoints with RBAC enforcement
+
+```
+### 3. Database Design Highlights
+
+| Entity       | Key Attributes & Notes                                                         |
+|--------------|--------------------------------------------------------------------------------|
+| **User**       | UUID primary key, unique email, hashed password, boolean `is_admin`            |
+| **Place**      | UUID primary key, title, description, price, latitude, longitude, linked to User (owner) |
+| **Review**     | UUID primary key, text, rating (1-5), linked to User and Place                 |
+| **Amenity**    | UUID primary key, unique name                                                  |
+| **Place_Amenity** | Many-to-many association table linking Places and Amenities                  |
+
+---
+
+### ⚙️ Setup & Running Instructions
+
+1. **Install Dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+ ---
+
+## ⚙️ Initialize Database
+
+```bash
 flask shell
 >>> from app import db
 >>> db.create_all()
-# Run the Application
+>>> exit()
+```
+# Run the Application ▶️
+```bash
 flask run
+```
 # 🔐 Role-Based Access Control (RBAC)
 JWT tokens carry the is_admin claim to verify admin privileges.
 
@@ -116,13 +171,14 @@ SQL scripts provided to create tables and insert initial data, including an admi
 CRUD operations tested via Postman or cURL to ensure data integrity and permission enforcement.
 
 # 🚀 Future Enhancements
-Interactive frontend UI.
+🎨 Interactive Frontend UI
 
-Advanced place search and filtering.
+🔍 Advanced Search & Filtering of Places
 
-Real-time notifications and updates.
+🔔 Real-time Notifications & Updates
 
-User activity logging and analytics dashboard.
+📈 User Activity Logging and Analytics Dashboard
+
 
 # 📚 References
 Flask Documentation
