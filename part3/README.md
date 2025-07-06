@@ -99,19 +99,7 @@ app/
 │   ├── repository.py     # SQLAlchemyRepository & UserRepository
 ├── services/             # Business logic layer (Facade pattern)
 └── api/                  # RESTful API endpoints with RBAC enforcement
-bash
-app/
-├── __init__.py           # App and DB setup
-├── models/               # SQLAlchemy ORM models
-│   ├── base_model.py     # BaseModel: UUID + timestamps
-│   ├── user.py           # User entity mapping
-│   ├── place.py          # Place entity mapping
-│   ├── review.py         # Review entity mapping
-│   └── amenity.py        # Amenity entity mapping
-├── persistence/          # Repositories layer
-│   ├── repository.py     # SQLAlchemyRepository & UserRepository
-├── services/             # Business logic layer (Facade pattern)
-└── api/                  # RESTful API endpoints with RBAC enforcement
+
 
 ```
 ### 3. Database Design Highlights
