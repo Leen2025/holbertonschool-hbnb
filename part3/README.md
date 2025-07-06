@@ -135,7 +135,7 @@ Flask-JWT-Extended
 
 UUID Generation in Python
 # Test 
-
+<img width="1165" height="305" alt="Image" src="https://github.com/user-attachments/assets/da19c5e0-42e3-444e-8d2e-40e17d1628c7" />
 
 
 # 📎 View the full database diagram here: [ER Diagram](./er_diagram.md)
