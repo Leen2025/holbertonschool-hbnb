@@ -311,6 +311,19 @@ This part of the project focuses on implementing the core functionality of the a
 - Proper testing and validation are essential for backend quality.
 
 
+# Part 3 :
+------ 
+## 🧩 Part 3 – Database Integration
+
+This phase focuses on migrating from in-memory storage to a real database using **SQLAlchemy**.  
+It includes:
+
+- Mapping core entities: `User`, `Place`, `Review`, `Amenity`
+- Establishing relationships: One-to-Many & Many-to-Many
+- Secure user management with `JWT` and `bcrypt`
+- Using the **Repository Pattern** for clean data access
+
+This part ensures persistent, scalable data handling for the HBnB project.
 
 
 
