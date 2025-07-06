@@ -1,51 +1,10 @@
-# 🏠 HBnB - Home & Beyond Booking
-
----
-
-
----
-
-## 📖 Introduction
-
-Welcome to **HBnB** — your modern, secure, and flexible home booking & management system. Whether you are a regular user or an administrator, **HBnB** lets you manage accounts, places, amenities, and reviews effortlessly with a clean architecture powered by modern tech.
-
-**HBnB** combines:
-
-- ⚡ **Flask RESTful API**  
-- 🐍 **SQLAlchemy ORM** with SQLite (development)  
-- 🔐 **JWT for authentication and authorization**  
-- 🔒 **bcrypt for secure password hashing**  
-- 📦 **Object-Oriented Programming & Layered Architecture**
-
----
-
-## 🛠️ Features
-
-| Feature                         | Description                                                                                  |
-|--------------------------------|----------------------------------------------------------------------------------------------|
-| 🎭 **Role-Based Access Control** | Regular users manage their own data. Admins can manage all resources with full privileges.   |
-| 🧩 **Accurate Data Modeling**      | Core entities: User, Place, Review, Amenity with strong relationships & constraints.         |
-| 🔑 **UUID Identifiers**             | Globally unique IDs for all entities ensuring robust data consistency.                       |
-| 📚 **Repository Pattern**           | Generic SQLAlchemyRepository + specialized UserRepository for clean, maintainable code.      |
-| 🔐 **Secure Password Management**   | Passwords hashed via bcrypt before storage with password verification.                       |
-| 🚀 **Robust API Endpoints**          | JWT secured routes, admin-restricted endpoints, with precise permission checks.             |
-
----
-
-## 🏗️ Technical Architecture
-
-### 1. Application Environment
-
-- Python 3.x  
-- Flask & Extensions: SQLAlchemy, Bcrypt, JWT Extended  
-
-### 2. Project Structure
 
 # 🏠 HBnB - Home & Beyond Booking
 
 ---
 
-![HBnB Banner](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80)
+![Welcome Tech](https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif)
+
 
 ---
 
