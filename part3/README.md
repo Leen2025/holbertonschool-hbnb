@@ -3,8 +3,7 @@
 
 ---
 
-![Welcome Tech](https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif)
-
+![Welcome](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
 
 ---
 
