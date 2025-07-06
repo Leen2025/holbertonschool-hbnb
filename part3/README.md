@@ -2,8 +2,7 @@
 # 🏠 HBnB - Home & Beyond Booking
 
 ---
-
-![Welcome](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
+![Welcome Tech](https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif)
 
 ---
 
