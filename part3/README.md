@@ -1,7 +1,8 @@
 # 🏠 HBnB - Home & Beyond Booking
 
 ---
-![Abstract Tech](https://media.giphy.com/media/YTbZzCkRQCEJa/giphy.gif)
+
+![Welcome](https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif)
 
 ---
 
@@ -183,3 +184,4 @@ UUID Generation in Python
 
 ## 🙌 Thank You!
 If you need any help or want to contribute, feel free to reach out. Let’s build great things together! 🚀✨
+![Abstract Tech](https://media.giphy.com/media/YTbZzCkRQCEJa/giphy.gif)
