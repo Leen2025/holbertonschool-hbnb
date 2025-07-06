@@ -135,9 +135,17 @@ Flask-JWT-Extended
 
 UUID Generation in Python
 # Test 
-<img width="1462" height="576" alt="Image" src="https://github.com/user-attachments/assets/81840efe-722a-4229-900c-6207d960127c" />
-<img width="1432" height="268" alt="Image" src="https://github.com/user-attachments/assets/5645b4a0-f0a3-4c4d-a03a-6cf60efe0ddb" />
-<img width="1165" height="305" alt="Image" src="https://github.com/user-attachments/assets/da19c5e0-42e3-444e-8d2e-40e17d1628c7" />
+<img src="https://github.com/user-attachments/assets/81840efe-722a-4229-900c-6207d960127c" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/5645b4a0-f0a3-4c4d-a03a-6cf60efe0ddb" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/da19c5e0-42e3-444e-8d2e-40e17d1628c7" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/340620d6-c6ea-49bc-a030-50e70440b75a" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/e936029f-5aa6-44bd-9c8d-454c118e516e" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/3f4a7e0f-e4d1-4b12-be0b-cb8c88715236" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/ea26350d-fe03-46fb-8ba6-000bd3e9710b" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/bc283304-b33f-4cde-8702-65e8fc538f6d" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/adaeaed7-d3d7-42d4-b3a6-ab80343f1878" alt="Image" width="500" />
+<img src="https://github.com/user-attachments/assets/e22a6408-12c8-4cfa-bc19-0882e45c31e4" alt="Image" width="500" />
+
 
 
 # 📎 View the full database diagram here: [ER Diagram](./er_diagram.md)
