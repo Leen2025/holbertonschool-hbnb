@@ -1,8 +1,7 @@
 # 🏠 HBnB - Home & Beyond Booking
 
 ---
-
-![Home Booking GIF](https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif)
+![Home Sweet Home](https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif)
 
 
 
