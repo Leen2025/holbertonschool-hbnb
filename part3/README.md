@@ -2,7 +2,6 @@
 
 ---
 
-![Welcome](https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif)
 
 ---
 
