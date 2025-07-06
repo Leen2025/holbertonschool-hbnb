@@ -135,20 +135,37 @@ Flask-JWT-Extended
 
 UUID Generation in Python
 # Test 
-<img src="https://github.com/user-attachments/assets/81840efe-722a-4229-900c-6207d960127c" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/5645b4a0-f0a3-4c4d-a03a-6cf60efe0ddb" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/da19c5e0-42e3-444e-8d2e-40e17d1628c7" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/340620d6-c6ea-49bc-a030-50e70440b75a" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/e936029f-5aa6-44bd-9c8d-454c118e516e" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/3f4a7e0f-e4d1-4b12-be0b-cb8c88715236" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/ea26350d-fe03-46fb-8ba6-000bd3e9710b" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/bc283304-b33f-4cde-8702-65e8fc538f6d" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/adaeaed7-d3d7-42d4-b3a6-ab80343f1878" alt="Image" width="500" />
-<img src="https://github.com/user-attachments/assets/e22a6408-12c8-4cfa-bc19-0882e45c31e4" alt="Image" width="500" />
+<div align="center">
 
-<img src="https://github.com/user-attachments/assets/1f284e88-c20d-45c5-abb5-fefec56d31eb" alt="Welcome Image" width="400" />
+<!-- Welcome & Tech GIFs -->
+<img src="https://github.com/user-attachments/assets/1f284e88-c20d-45c5-abb5-fefec56d31eb" alt="Welcome GIF" width="400" />
 <br/>
-<img src="https://github.com/user-attachments/assets/f837eeff-3c5f-440e-82f6-0a2a5c6a86b8" alt="Tech Image" width="400" />
+<img src="https://github.com/user-attachments/assets/f837eeff-3c5f-440e-82f6-0a2a5c6a86b8" alt="Tech GIF" width="400" />
+
+---
+
+<!-- Project Screenshots -->
+<img src="https://github.com/user-attachments/assets/81840efe-722a-4229-900c-6207d960127c" alt="Screenshot 1" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/5645b4a0-f0a3-4c4d-a03a-6cf60efe0ddb" alt="Screenshot 2" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/da19c5e0-42e3-444e-8d2e-40e17d1628c7" alt="Screenshot 3" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/340620d6-c6ea-49bc-a030-50e70440b75a" alt="Screenshot 4" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/e936029f-5aa6-44bd-9c8d-454c118e516e" alt="Screenshot 5" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/3f4a7e0f-e4d1-4b12-be0b-cb8c88715236" alt="Screenshot 6" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/ea26350d-fe03-46fb-8ba6-000bd3e9710b" alt="Screenshot 7" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/bc283304-b33f-4cde-8702-65e8fc538f6d" alt="Screenshot 8" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/adaeaed7-d3d7-42d4-b3a6-ab80343f1878" alt="Screenshot 9" width="500" />
+<br/>
+<img src="https://github.com/user-attachments/assets/e22a6408-12c8-4cfa-bc19-0882e45c31e4" alt="Screenshot 10" width="500" />
+
+</div>
 
 
 # 📎 View the full database diagram here: [ER Diagram](./er_diagram.md)
