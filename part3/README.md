@@ -1,8 +1,7 @@
 # 🏠 HBnB - Home & Beyond Booking
 
 ---
-![Cozy Home](https://media.giphy.com/media/3o6ozh3DqOdqaVbOX6/giphy.gif)
-
+![Welcome Tech](https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif)
 
 ---
 
