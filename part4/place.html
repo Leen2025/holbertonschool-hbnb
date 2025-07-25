@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="er">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>place-details</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="place-details" class="place-details"></section>
+
+    <section id="reviews-section">
+      <h3>Ratings</h3>
+      <div id="reviews-list"></div>
+    </section>
+
+    <section id="add-review-section" style="display:none;">
+      <h3>Add rating</h3>
+      <form id="review-form">
+        <textarea id="review-text" placeholder="Write your review here..." required></textarea>
+        <button type="submit">Submit evaluation</button>
+      </form>
+      <p id="review-msg"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© All rights reserved</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
 
