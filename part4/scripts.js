@@ -51,6 +51,7 @@ function setupLoginForm() {
     try {
       const data = await loginUser(email, password);
       setCookie('token', data.access_token, 1);
+      localStorage.setItem('userEmail', email);
       window.location.href = 'index.html';
     } catch (err) {
       document.getElementById('error-msg').textContent = 'Incorrect email or password';
