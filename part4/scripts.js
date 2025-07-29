@@ -38,6 +38,14 @@ function toggleLoginLink() {
   else loginLink.style.display = 'inline';
 }
 
+function showUserEmail() {
+  const email = localStorage.getItem('userEmail');
+  const emailElement = document.getElementById('user-email');
+  if (email && emailElement) {
+    emailElement.textContent = `مرحباً، ${email}`;
+  }
+}
+
 // Login handling - set up the login form
 function setupLoginForm() {
   const form = document.getElementById('login-form');
@@ -220,9 +228,9 @@ function setupReviewForm() {
 // When the page loads
 document.addEventListener('DOMContentLoaded', () => {
   toggleLoginLink();
+  showUserEmail();
   setupLoginForm();
   displayPlaces();
   displayPlaceDetails();
   setupReviewForm();
 });
-
