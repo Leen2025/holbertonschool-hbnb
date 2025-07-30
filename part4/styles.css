@@ -12,17 +12,27 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: rgb(22, 36, 71);
-  padding: 20px 20px;
-  color: rgb(61, 0, 0); 
+  padding: 20px;
+  color: white;
+  width: 100vw;
+  box-sizing: border-box;
 }
+
 
 .logo {
   width: 130px;
+  order: 2;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  font-size: 18px;
+  order: 1; /* ensures it stays left */
 }
 
 nav a {
   color: rgb(228, 63, 90);
-  margin-right: 15px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -30,6 +40,7 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+
 
 main {
   margin: 20px auto;
