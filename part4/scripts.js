@@ -18,11 +18,29 @@ function setCookie(name, value, days = 1) {
 // Mock login (for testing purposes)
 async function loginUser(email, password) {
   // Fake API - for testing only
-  if (email === "user@example.com" && password === "password123") {
+  /*if (email === "user@example.com" && password === "password123") {
     return { access_token: "mock-jwt-token-12345" };
   } else {
     throw new Error("Invalid credentials");
+  }*/
+  async function loginUser(email, password) {
+  const response = await fetch('http://127.0.0.1:5000/api/v1/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+  });
+
+  if (!response.ok) {
+    const err = await response.json();
+    throw new Error(err.message || 'Login failed');
   }
+
+  const data = await response.json();
+  return { access_token: data.token };
+}
+
 }
 
 // Check if token exists
