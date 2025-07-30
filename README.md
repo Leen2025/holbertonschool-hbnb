@@ -321,7 +321,7 @@ It includes:
 - Mapping core entities: `User`, `Place`, `Review`, `Amenity`
 - Establishing relationships: One-to-Many & Many-to-Many
 - Secure user management with `JWT` and `bcrypt`
-- Using the **Repository Pattern** for clean data access
+- Using the **Repository Pattern** for clean and clear data access
 
 This part ensures persistent, scalable data handling for the HBnB project.
 
