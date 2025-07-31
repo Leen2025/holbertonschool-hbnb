@@ -1,5 +1,5 @@
 # part 4 
-# Hi Welcome
+# Hi Welcom
 # hi
 <img width="1882" height="872" alt="Screenshot 2025-07-26 003240" src="https://github.com/user-attachments/assets/2f122bb9-cf12-4ca8-9e33-2560c5f47dc2" />
 
