@@ -63,7 +63,7 @@ curl -X POST http://127.0.0.1:5000/api/v1/places/
   - Update user
   - Delete user
 - Validated required fields like `email` and `password`.
-- 
+
 ![Image](https://github.com/user-attachments/assets/311797f0-fd06-4949-be64-df049aebddcb)
 ---
 
@@ -169,3 +169,4 @@ curl -X DELETE http://127.0.0.1:5000/api/v1/users/<user_id>
 - Make sure each endpoint returns valid JSON.
 
 ---
+
